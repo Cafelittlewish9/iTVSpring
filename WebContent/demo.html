@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Video.js | HTML5 Video Player</title>
+
+  <!-- Chang URLs to wherever Video.js files will be hosted -->
+  <link href="video-js.css" rel="stylesheet" type="text/css">
+  <!-- video.js must be in the <head> for older IEs to work. -->
+  <script src="video.js"></script>
+
+  <!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+  <script>
+    videojs.options.flash.swf = "video-js.swf";
+  </script>
+
+
+</head>
+<body>
+    
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
+      data-setup='{"techOrder": ["html5", "flash"] }'>
+    <!--<source src="Attack.mp4" type='video/mp4' />-->
+    <source src="../mp4/B1A4 - Sweet Girl.mp4" type='video/mp4' />
+
+     <!-- <source src="http://127.0.0.1/liveevent.m3u8" type='rtmp/mp4' />-->
+  </video>
+  
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
+      data-setup='{"techOrder": ["html5", "flash"] }'>
+    <!--<source src="Attack.mp4" type='video/mp4' />-->
+    <source src="Video/스텔라(Stellar) - 떨려요(Vibrato).mp4" type='video/mp4' />
+
+     <!-- <source src="http://127.0.0.1/liveevent.m3u8" type='rtmp/mp4' />-->
+  </video>
+  
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="360"
+      data-setup='{"techOrder": ["html5", "flash"] }'>
+    <!--<source src="Attack.mp4" type='video/mp4' />-->
+    <source src="Video/소녀시대 - PARTY.mp4" type='video/mp4' />
+
+     <!-- <source src="http://127.0.0.1/liveevent.m3u8" type='rtmp/mp4' />-->
+  </video>
+   
+
+</body>
+</html>

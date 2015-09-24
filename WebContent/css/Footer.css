@@ -1,0 +1,79 @@
+h6, .h6 {
+    font-size: 20px;
+    color: #f1f1f1;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.float-left a{
+    color: #f1f1f1;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 35px;
+    text-decoration: none;
+}
+
+.float-right a{
+    color: #f1f1f1;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 35px;
+    text-decoration: none;
+}
+.footer-home {
+	background-color:rgba(0,0,0,0.7);
+	height: 300px;
+}
+.footer-home .float-left {
+    float: left;
+}
+.footer-home .float-right {
+	float: right;
+    padding-right: 40px;
+}
+.footer-home--icon.facebook {
+    border: 1px solid #37589a;
+    color: #37589a;
+    margin-right: 5px;
+}
+
+.footer-home--icon {
+    border-radius: 1px;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    margin: 5px 0 10px;
+    width: 170px;
+}
+
+.footer-home--icon.twitter {
+    border: 1px solid #0ab8ed;
+    color: #0ab8ed;
+}
+
+.footer-home--icon {
+    border-radius: 1px;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    margin: 5px 0 10px;
+    width: 170px;
+}
+.footer-home-email--title {
+    font-size: 14px;
+    padding-bottom: 5px;
+    color: #f1f1f1;
+    font-weight: 300;
+}
+.footer-home-email {
+    max-width: 255px;
+    padding-top: 5px;
+}
