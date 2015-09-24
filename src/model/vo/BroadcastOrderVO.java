@@ -3,7 +3,7 @@ package model.vo;
 import java.io.Serializable;
 
 public class BroadcastOrderVO implements Serializable {
-//	private String memberAccount;
+//	private int memberId;
 	private String broadcastSite;
 	private String broadcastTitle;
 	private java.util.Date broadcastTime;
@@ -12,15 +12,16 @@ public class BroadcastOrderVO implements Serializable {
 
 	@Override
 	public String toString() {
-		return " Account: " + member.getMemberAccount() + " 標題: " + broadcastTitle + " 網址: " + broadcastSite + System.lineSeparator();
+		return " Account: " + member.getMemberAccount() + " 標題: " + broadcastTitle + " 網址: " + broadcastSite
+				+ System.lineSeparator();
 	}
 
-//	public String getMemberAccount() {
-//		return memberAccount;
+//	public int getMemberId() {
+//		return memberId;
 //	}
 //
-//	public void setMemberAccount(String memberAccount) {
-//		this.memberAccount = memberAccount;
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
 //	}
 
 	public String getBroadcastSite() {

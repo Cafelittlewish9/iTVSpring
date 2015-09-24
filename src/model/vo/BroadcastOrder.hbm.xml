@@ -6,12 +6,12 @@
 <hibernate-mapping>
 	<class name="model.vo.BroadcastOrderVO" table="BroadcastOrder">
 		<composite-id>
-			<key-many-to-one name="member" class="model.vo.MemberVO" column="memberAccount" />
+			<key-many-to-one name="member" class="model.vo.MemberVO"
+				column="memberId" lazy="false"/>
 		</composite-id>
 		<property name="broadcastSite" column="broadcastSite" />
 		<property name="broadcastTitle" column="broadcastTitle" />
 		<property name="broadcastTime" column="broadcastTime" />
 		<property name="broadcastWatchTimes" column="broadcastWatchTimes" />
-		<!-- <many-to-one name="member" class="model.vo.MemberVO" column="memberAccount"/> -->
 	</class>
 </hibernate-mapping>
