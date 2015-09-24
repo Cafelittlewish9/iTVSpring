@@ -48,7 +48,7 @@ $(function(){
 <!-- </head> -->
 <!-- <body> -->
 
-<%-- 		<jsp:include page="/Login.jsp" /> --%>
+		<jsp:include page="/Login.jsp" />
    
 		<jsp:include page="/VideoUpload.jsp" />
 		   
@@ -92,7 +92,7 @@ $(function(){
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:0px">
 								<div class="stream-title--image">
 			              
-					                <img src="img/photo.png" />
+					                <img src="${user.memberNickname}" />
 					              
 					            </div >
 					            </a>
@@ -141,17 +141,16 @@ $(function(){
 			
 	          <div class="header-home--nav">
 	            
-	              <a class="header-home--link login" href="Login.jsp" id="woopra_login">登入</a>
+<!-- 	              <a class="header-home--link login" href="Login.jsp" id="woopra_login">登入</a> -->
 	              <a class="header-home--link signup" href="SignUp.jsp" id="woopra_sign_up">註冊</a>
 
-<!-- 				<button type="button" class="header-home--link login" data-toggle="modal" data-target="#Login">登入</button> -->
+				<button type="button" class="header-home--link login" data-toggle="modal" data-target="#Login">登入</button>
 <!-- 				<button type="button" class="header-home--link signup" id="signup" data-toggle="modal" data-target="#SignUp">註冊</button> -->
 	            
 	              <a class="header-home--link shows" href="LiveStream.jsp" style="height:39px;text-decoration: none">觀賞實況</a>
 	          </div>
-	        </div>
-			
 			</c:if>
+	        </div>
 			
     </header>
 <!-- </body> -->

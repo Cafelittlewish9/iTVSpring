@@ -107,7 +107,7 @@ public class ArticleDAOjdbc implements ArticleDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -134,7 +134,7 @@ public class ArticleDAOjdbc implements ArticleDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.update(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

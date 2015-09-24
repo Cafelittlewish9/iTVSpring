@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.service.FollowService;
 import model.vo.FollowVO;
+import model.vo.MemberVO;
 @WebServlet("/follow")
 public class FollowRServlet extends javax.servlet.http.HttpServlet{
     private static final long serialVersionUID = 2010L;
@@ -41,7 +42,9 @@ public class FollowRServlet extends javax.servlet.http.HttpServlet{
         int id=Integer.parseInt(memberId);
         int fid=Integer.parseInt(followId);
         FollowVO bean = new FollowVO();
-        bean.setFollowId(fid);
+        MemberVO member = new MemberVO();
+        member.setMemberId(id);
+        bean.setMember(member);
         bean.setMemberId(id);
         //還是應該用bid去求出被黑的人的memberAccount?!
 //      呼叫model

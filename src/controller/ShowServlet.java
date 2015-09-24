@@ -2,12 +2,10 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -58,8 +56,12 @@ public class ShowServlet extends HttpServlet {
 		
 		String memberId = request.getParameter("memberId");
 		java.sql.Timestamp showTime = new java.sql.Timestamp(date.getTime());
-		String videoId = Website + request.getParameter("videoId");
+		String videoId = request.getParameter("videoId");
 		String prodaction = request.getParameter("prodaction");
+		
+		System.out.println(memberId);
+		System.out.println(videoId);
+		System.out.println(prodaction);
 		//驗證資料
 				Map<String, String> errors = new HashMap<String, String>();
 				request.setAttribute("error", errors);
@@ -75,7 +77,6 @@ public class ShowServlet extends HttpServlet {
 				}
 		//轉換資料
 		int id = 0;
-				
 		if(memberId!=null && memberId.length()!=0) {
 			id = ConvertType.convertToInt(memberId);
 			if(id==-1000) {
@@ -87,7 +88,9 @@ public class ShowServlet extends HttpServlet {
 		ShowVO bean = new ShowVO();
 		bean.setMemberId(id);
 		bean.setShowTime(showTime);
-		bean.setVideoId(ConvertType.convertToInt(videoId));
+		VideoVO video = new VideoVO();
+		video.setVideoId(ConvertType.convertToInt(videoId));
+		bean.setVideo(video);
 		
 		
 		//根據Model執行結果導向View
@@ -100,7 +103,7 @@ public class ShowServlet extends HttpServlet {
 			request.getRequestDispatcher(
 					"/pages/Success.jsp").forward(request, response);
 		}else if(prodaction!=null && prodaction.equals("Check")) {
-			ShowVO result = ss.checkShow(bean.getMemberId(),bean.getVideoId());
+			ShowVO result = ss.checkShow(bean.getMemberId(),bean.getVideo().getVideoId());
 			PrintWriter out = response.getWriter();
 			if(result!=null){
 				JSONArray one = new JSONArray();
@@ -108,7 +111,7 @@ public class ShowServlet extends HttpServlet {
 					Map map =new HashMap();
 					map.put("memberId",result.getMemberId());
 					map.put("showTime",result.getShowTime()+"");
-					map.put("website",result.getVideo().getVideoWebsite());
+					map.put("website",result.getVideo().getVideoTitle());
 					
 				//轉換contentType必要
 				response.setContentType("text/html; charset=utf-8");
@@ -128,7 +131,7 @@ public class ShowServlet extends HttpServlet {
 					Map map =new HashMap();
 					map.put("memberId",row.getMemberId());
 					map.put("showTime",row.getShowTime()+"");
-					map.put("website",row.getVideo().getVideoWebsite());
+					map.put("website",row.getVideo().getVideoTitle());
 					one.add(map);
 				}
 				//轉換contentType必要

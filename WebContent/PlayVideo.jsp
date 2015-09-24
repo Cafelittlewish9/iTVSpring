@@ -35,9 +35,10 @@
   </script>
   
   <link href="css/PlayVideo.css" rel="stylesheet">
-  
+ 
   <script>
   $(function(){
+	  
 	  $('#textarea').focus(function(){
 			$("#comment_button1").css('display','block');
 		});
@@ -57,6 +58,7 @@
 			  $("#comment_submit").attr('disabled','disabled');
 		  }
 		});
+
 	  
 	  
 // 	  判斷使用者是否追加過影片

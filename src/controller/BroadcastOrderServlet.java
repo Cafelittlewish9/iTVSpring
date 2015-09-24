@@ -19,6 +19,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 
 import model.service.BroadcastOrderService;
+import model.service.MemberService;
 import model.vo.BroadcastOrderVO;
 
 /**
@@ -27,13 +28,12 @@ import model.vo.BroadcastOrderVO;
 @WebServlet("/BroadcastOrderServlet")
 public class BroadcastOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-    public BroadcastOrderServlet() {
-        super();
-    }
-    
-    
-    
+	private MemberService mService;
+	
+	@Override
+	public void init() throws ServletException {
+		mService = new MemberService();
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//接收資料
 		Date date = new Date();
@@ -58,7 +58,6 @@ public class BroadcastOrderServlet extends HttpServlet {
 			try {
 				BroadcastTime = sdf.parse(newtime);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			broadcastTime = new java.sql.Timestamp(BroadcastTime.getTime());
@@ -82,7 +81,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 		
 		//呼叫Model
 				BroadcastOrderVO bean = new BroadcastOrderVO();
-				bean.setMemberAccount(memberAccount);
+				bean.setMember(mService.searchByMemberAccount(memberAccount));
 				bean.setBroadcastSite(broadcastSite);
 				bean.setBroadcastTitle(broadcastTitle);
 				bean.setBroadcastTime(broadcastTime);
@@ -105,7 +104,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 						
 						JSONArray list = new JSONArray();
 							Map map =new HashMap();
-							map.put("memberAccount",result.getMemberAccount());
+							map.put("memberAccount",result.getMember().getMemberAccount());
 							map.put("broadcastSite",result.getBroadcastSite());
 							map.put("broadcastTitle",result.getBroadcastTitle());
 							map.put("broadcastTime",result.getBroadcastTime()+"");
@@ -130,13 +129,13 @@ public class BroadcastOrderServlet extends HttpServlet {
 					request.getRequestDispatcher(
 							"/pages/Success.jsp").forward(request, response);
 				} else if(prodaction!=null && prodaction.equals("Delete")) {
-					boolean result = bs.removeBroadcast(bean.getMemberAccount());
+					boolean result = bs.removeBroadcast(bean.getMember().getMemberAccount());
 					PrintWriter out = response.getWriter();
 					out.println(result);
 				
 				} else if(prodaction!=null && prodaction.equals("searchAccount")) {
 					System.out.println(prodaction);
-					BroadcastOrderVO res = bs.searchAccount(bean.getMemberAccount());
+					BroadcastOrderVO res = bs.searchAccount(bean.getMember().getMemberAccount());
 					if(res==null){
 						PrintWriter out = response.getWriter();
 						out.println("Not Login");
@@ -144,7 +143,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 					JSONArray list = new JSONArray();
 					
 						Map map =new HashMap();
-						map.put("memberAccount",res.getMemberAccount());
+						map.put("memberAccount",res.getMember().getMemberAccount());
 						map.put("broadcastSite",res.getBroadcastSite());
 						map.put("broadcastTitle",res.getBroadcastTitle());
 						map.put("broadcastTime",res.getBroadcastTime()+"");
@@ -165,7 +164,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 					JSONArray list = new JSONArray();
 					for (BroadcastOrderVO row : res) {
 						Map map =new HashMap();
-						map.put("memberAccount",row.getMemberAccount());
+						map.put("memberAccount",row.getMember().getMemberAccount());
 						map.put("broadcastSite",row.getBroadcastSite());
 						map.put("broadcastTitle",row.getBroadcastTitle());
 						map.put("broadcastTime",row.getBroadcastTime()+"");

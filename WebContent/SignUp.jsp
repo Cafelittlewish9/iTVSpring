@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -66,12 +65,7 @@ $(function () {
 	
 	var server = "rtmp://itvvm.cloudapp.net/live/";
 	$('#broadcastWebsite').val(server+"<%=a%>");
-	console.log(server+"<%=a%>");
-	
-// 	 $('#l_submit1').click(function(){
-//         	 $.get('registry.do',$('#SignUp_form').serialize(),function(data){
-//       	   		})
-//  	});
+	 
 });
 </script>
 
@@ -93,54 +87,53 @@ $(function () {
       
       <div class="modal-body">
 <!-- 		<div class="upload-form"> -->
-			<form id="SignUp_form" action="<c:url value='/registry.do'/>" method="post">
+			<form id="SignUp_form">
 				<fieldset style="text-align:center">
 				
 				
 				<div id="l_input1"  class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">帳號</span>
-					  <input value="${errorMsg}" id="memberAccount" type="text" name="memberAccount" class="form-control" placeholder="帳號限英文字母、數字，長度必須在6-20之間" aria-describedby="basic-addon1">
+					  <input id="memberAccount" type="text" name="memberAccount" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				<div id="l_input2"  class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">密碼</span>
-					  <input value="${errorMsg}" id="memberPassword" type="text" name="memberPassword" class="form-control" maxlength="20" placeholder="密碼限英文字母、數字，長度必須在8-20之間" aria-describedby="basic-addon1">
+					  <input id="memberPassword" type="text" name="memberPassword" class="form-control" maxlength="6" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				<div id="l_input3" class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">E-mail</span>
-					  <input value="${errorMsg}" id="memberEmail" type="text" name="memberEmail" class="form-control" maxlength="40" placeholder="此項為必填欄位" aria-describedby="basic-addon1">
+					  <input id="memberEmail" type="text" name="memberEmail" class="form-control" maxlength="6" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				<div class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">暱稱</span>
-					  <input value="${param.memberNickname}" id="memberNickname" type="text" name="memberNickname" class="form-control" maxlength="40" placeholder="請輸入" aria-describedby="basic-addon1">
+					  <input id="memberNickname" type="text" name="memberNickname" class="form-control" maxlength="4" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				<div   class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">生日</span>
-					  <input value="${param.memberBirthday}" id="memberBirthday" type="date" name="memberBirthday" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
+					  <input id="memberBirthday" type="date" name="memberBirthday" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				<div  class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">直播Server</span>
 					  <input id="broadcastWebsite" type="text" name="broadcastWebsite" class="form-control" placeholder="" aria-describedby="basic-addon1" readonly>
-				</div>				
-
-				<input value="Insert" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1">
-			
-			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group1">
-				<input style="width: 440px" id="l_submit1"  value="註冊" name="operation" class="btn btn-primary btn-small" type="submit">
-<!-- 				<div id="l_input4"  class="input-group"> -->
-<!-- 					  <span  class="input-group-addon" id="basic-addon1">頭像</span> -->
-<!-- 					  <input id="memberPhoto" type="file" name="memberPhoto" class="form-control" placeholder="" aria-describedby="basic-addon1"> -->
-<!-- 				</div> -->
+				</div>
 				
+				
+				<div id="l_input4"  class="input-group">
+					  <span  class="input-group-addon" id="basic-addon1">頭相</span>
+					  <input id="memberPhoto" type="file" name="memberPhoto" class="form-control" placeholder="" aria-describedby="basic-addon1">
+				</div>
+				
+				<input value="Insert" type="hidden" name="prodaction" class="form-control" aria-describedby="basic-addon1">
+				
+				</fieldset>
+			</form>
+			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group1">
+				<input style="width: 440px" id="l_submit1"  value="Insert" class="btn btn-primary btn-small" type="submit">
 			</div>
-			</fieldset>	
-			</form>					
-			
-			
 	   </div>
 		
 			<div class="modal-footer">

@@ -12,7 +12,7 @@ $(function(){
 			$('#vls_memberId').val(data[0].memberId);
 			$.each(data,function(i,v){
 				var videolist = (v.website).substring((v.website).indexOf('=')+1);
-				
+//				console.log("videolist=" + videolist);
 				 var listvideos = {
 				                  src: ['../mp4/'+videolist+'.mp4'],
 				                  poster: '../img/'+videolist+'.jpg',
@@ -22,9 +22,10 @@ $(function(){
 				 
 				 $('#vls_website').append("<option value='"+videolist+"'>"+videolist+"</option>");
 				 
+				 
 			});
 				
-				console.log(videos);
+//				console.log(videos);
 			
 				var demoModule = {
 						

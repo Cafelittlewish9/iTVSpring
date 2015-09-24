@@ -111,7 +111,7 @@
 	            dataSource="jdbc/DB"
 	        />
         
-       <sql:query var="rs" dataSource="${ds}">
+       	<sql:query var="rs" dataSource="${ds}">
             select TOP 80percent * from video  order by newid()
         </sql:query>
         

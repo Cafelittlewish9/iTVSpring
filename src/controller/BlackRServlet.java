@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.service.BlackService;
 import model.vo.BlackVO;
+import model.vo.MemberVO;
 @WebServlet("/black")
 public class BlackRServlet extends javax.servlet.http.HttpServlet{
     private static final long serialVersionUID = 2010L;
@@ -41,7 +42,9 @@ public class BlackRServlet extends javax.servlet.http.HttpServlet{
         int id=Integer.parseInt(memberId);
         int bid=Integer.parseInt(blackedId);
         BlackVO bean = new BlackVO();
-        bean.setBlackedId(bid);
+        MemberVO member = new MemberVO();
+        member.setMemberId(id);
+        bean.setMember(member);
         bean.setMemberId(id);
         //還是應該用bid去求出被黑的人的memberAccount?!
 //      呼叫model
@@ -57,7 +60,9 @@ public class BlackRServlet extends javax.servlet.http.HttpServlet{
         int id=Integer.parseInt(memberId);
         int bid=Integer.parseInt(blackedId);
         BlackVO bean = new BlackVO();
-        bean.setBlackedId(bid);
+        MemberVO member = new MemberVO();
+        member.setMemberId(id);
+        bean.setMember(member);
         bean.setMemberId(id);
         service.removeBlackAccount(bean);
         request.setAttribute("blackList", service.searchBlackAccount(id));

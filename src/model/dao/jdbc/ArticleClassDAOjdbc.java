@@ -105,7 +105,7 @@ public class ArticleClassDAOjdbc implements ArticleClassDAO {
 		return bean;
 	}
 
-	private static final String INSERT = "INSERT INTO ArticleClass VALUES (?,?,?)";
+//	private static final String INSERT = "INSERT INTO ArticleClass VALUES (?,?,?)";
 
 	/**
 	 * 新增文章分類、子分類代碼與子分類名稱
@@ -120,7 +120,7 @@ public class ArticleClassDAOjdbc implements ArticleClassDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -130,7 +130,7 @@ public class ArticleClassDAOjdbc implements ArticleClassDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE ArticleClass SET SubclassName=?,ClassName=? WHERE subclassNo=?";
+//	private static final String UPDATE = "UPDATE ArticleClass SET SubclassName=?,ClassName=? WHERE subclassNo=?";
 
 	/**
 	 * 修改文章分類、子分類代碼或子分類名稱
@@ -145,7 +145,7 @@ public class ArticleClassDAOjdbc implements ArticleClassDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.update(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -155,7 +155,7 @@ public class ArticleClassDAOjdbc implements ArticleClassDAO {
 		return result;
 	}
 
-	private static final String DELETE = "DELETE FROM ArticleClass WHERE subclassNo=?";
+//	private static final String DELETE = "DELETE FROM ArticleClass WHERE subclassNo=?";
 
 	/**
 	 * 刪除文章分類、子分類代碼與子分類名稱

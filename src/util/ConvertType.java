@@ -1,13 +1,12 @@
 package util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
-
-import model.dao.ArticleDAO;
-import model.dao.LoginDAO;
-import model.dao.jdbc.ArticleDAOjdbc;
-//import model.dao.jdbc.LoginDAOjdbc;
 
 public class ConvertType {
 
@@ -73,30 +72,36 @@ public class ConvertType {
 		}
 		return result;
 	}
-//
-//	public static void photoToDatabase(String memberAccount, String path, int fileSize) {
-//		File photo = new File(path);
-//		FileInputStream is = null;
-//		try {
-//			is = new FileInputStream(photo);
-//			byte[] temp = new byte[fileSize];
-//			is.read(temp);
-//			System.out.println(temp.length);
-//			
-//		} catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} finally {
-//			if (is != null) {
-//				try {
-//					is.close();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
-//	}
+
+	public static String convertToBase64(byte[] photo) {
+		String result = java.util.Base64.getEncoder().encodeToString(photo);
+		return "data:image/jpg;base64," + result;
+	}
+
+	//
+	public static void photoToDatabase(String memberAccount, String path, int fileSize) {
+		File photo = new File(path);
+		FileInputStream is = null;
+		try {
+			is = new FileInputStream(photo);
+			byte[] temp = new byte[fileSize];
+			is.read(temp);
+			System.out.println(temp.length);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		// System.out.println(TimeZone.getDefault());
@@ -115,8 +120,8 @@ public class ConvertType {
 		// java.util.Date(System.currentTimeMillis()), "Asia/Taipei");
 		// System.out.println(time);
 
-//		ArticleDAO temp = new ArticleDAOjdbc();
-//		LoginDAO dao = new LoginDAOjdbc();
+		// ArticleDAO temp = new ArticleDAOjdbc();
+		// LoginDAO dao = new LoginDAOjdbc();
 
 		/*
 		 * List<LoginVO> bean = dao.selectAll("Pikachu"); for (LoginVO a : bean)

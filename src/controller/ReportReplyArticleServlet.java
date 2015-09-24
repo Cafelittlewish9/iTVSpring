@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.service.MemberService;
 import model.service.ReportReplyArticleService;
 import model.vo.MemberVO;
+import model.vo.ReplyArticleVO;
 import model.vo.ReportReplyArticleVO;
 import util.ConvertType;
 
@@ -84,7 +85,9 @@ public class ReportReplyArticleServlet extends HttpServlet {
 		//呼叫Model
 		ReportReplyArticleVO bean = new ReportReplyArticleVO();
 		bean.setOrderId(convertOrderId);
-		bean.setReportedReplyArticleId(convertReportedReplyArticleId);
+		ReplyArticleVO replyArticle = new ReplyArticleVO();
+		replyArticle.setReplyArticleId(convertReportedReplyArticleId);
+		bean.setReplyArticle(replyArticle);
 		
 		//導向View
 		//管理人員後台顯示被檢舉回文

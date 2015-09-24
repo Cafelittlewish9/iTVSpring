@@ -58,12 +58,14 @@ public class Login extends HttpServlet {
 			String ip = request.getRemoteAddr();// 有個ip and then?
 			System.out.println(ip);
 			session.setAttribute("user", bean);
+			System.out.println("登入成功");
 			response.sendRedirect("HomePageVersion3.jsp");
 			return;
 		} else if (operation != null && operation.equals("提取密碼")) {
 			request.getRequestDispatcher("GetPassword.jsp").forward(request, response);// 送去客服頁面
 			return;
 		} else {
+			System.out.println("登入失敗");
 			errors.put("password", "登入失敗，請再試一遍");// 放在session裡
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}

@@ -110,37 +110,37 @@ $(function () {
     });
     
     
-//    $('#l_submit2-1').click(function(){
-//    	if($('#Login_memberAccount').val()==""||$('#Login_memberPassword').val()==""){
-//    		if($('#Login_memberAccount').val()==""){
-//    			$('#l_input1-1').addClass("has-error has-feedback");
-//    		}
-//        	if($('#Login_memberPassword').val()==""){
-//            	$('#l_input2-1').addClass("has-error has-feedback");
-//        	}
-//        	return;
-//    	}else{
-//    		 $.get('MemberServlet',$('#Login_form').serialize(),function(data){
-//       		   console.log(data);
-//       	   		});
-//    		 
-//    		 $('#signupfinished h4').text("登入成功");
-//    		//關閉列表 顯示成功畫面
-//    		setTimeout(function() {
-//				$('#Login').modal('hide');
-//              	$('#signupfinished').modal('show');
-//              }, 500);
-//    		
-//          	//一秒半後關閉成功畫面
-//         	 setTimeout(function() {
-//              	$('#signupfinished').modal('hide');
-//              }, 2000);
-//         	setTimeout(function() {
-//       		 location.reload();
-//            }, 3000);
-//    	}
-//    	
-//    });
+    $('#l_submit2-1').click(function(){
+    	if($('#Login_memberAccount').val()==""||$('#Login_memberPassword').val()==""){
+    		if($('#Login_memberAccount').val()==""){
+    			$('#l_input1-1').addClass("has-error has-feedback");
+    		}
+        	if($('#Login_memberPassword').val()==""){
+            	$('#l_input2-1').addClass("has-error has-feedback");
+        	}
+        	return;
+    	}else{
+    		 $.get('MemberServlet',$('#Login_form').serialize(),function(data){
+       		   console.log(data);
+       	   		});
+    		 
+    		 $('#signupfinished h4').text("登入成功");
+    		//關閉列表 顯示成功畫面
+    		setTimeout(function() {
+				$('#Login').modal('hide');
+              	$('#signupfinished').modal('show');
+              }, 500);
+    		
+          	//一秒半後關閉成功畫面
+         	 setTimeout(function() {
+              	$('#signupfinished').modal('hide');
+              }, 2000);
+         	setTimeout(function() {
+       		 location.reload();
+            }, 3000);
+    	}
+    	
+    });
     
     $('#l_submit3-1').click(function(){
     	if($('#get_memberAccount').val()==""||$('#get_memberEmail').val()==""){

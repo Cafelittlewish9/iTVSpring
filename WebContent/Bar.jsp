@@ -39,7 +39,7 @@
 				</c:if>
 				
 				<ul>
-					<a href="Videos.jsp"><span class="glyphicon glyphicon-hd-video" > <span style="font-family:Microsoft JhengHei;">熱門影片</span></span></a>
+					<a href="videos"><span class="glyphicon glyphicon-hd-video" > <span style="font-family:Microsoft JhengHei;">熱門影片</span></span></a>
 				</ul>	
 				
 				

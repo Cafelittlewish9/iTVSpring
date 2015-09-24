@@ -69,7 +69,7 @@ $(function(){
 			}
 		})
 })
-alert('${sessionScope.user}');
+// alert('${sessionScope.user}');
 </script>
 
 </head>

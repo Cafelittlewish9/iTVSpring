@@ -40,13 +40,15 @@ public class Photo extends HttpServlet {
 		String filename = header.substring(header.indexOf("filename=\"") + 10, header.lastIndexOf("\""));
 
 		InputStream in = filePart1.getInputStream();
-//		String path = "d:/png/" + filename;
-//		OutputStream out = new FileOutputStream(path);
-//		byte[] buffer = new byte[1024];
-//		int length = -1;
-//		while ((length = in.read(buffer)) != -1) {
-//			out.write(buffer, 0, length);
-//		}
+		
+		in.available();
+		String path = "d:/png/" + filename;
+		OutputStream out = new FileOutputStream(path);
+		byte[] buffer = new byte[in.available()];
+		int length = -1;
+		while ((length = in.read(buffer)) != -1) {
+			out.write(buffer, 0, length);
+		}
 //		ms.changePhoto("Pikachu", in);
 ////		out.close();
 //		in.close();

@@ -49,7 +49,7 @@ public class BlackDAOjdbc implements BlackDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -86,7 +86,7 @@ public class BlackDAOjdbc implements BlackDAO {
 		return list;
 	}
 
-	private static final String REMOVE_BLACK = "DELETE FROM black WHERE memberId=? AND blackedId=?";
+//	private static final String REMOVE_BLACK = "DELETE FROM black WHERE memberId=? AND blackedId=?";
 
 	/**
 	 * 解除某會員編號所設定的單筆黑名單

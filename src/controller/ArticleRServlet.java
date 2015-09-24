@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.service.ArticleService;
+import model.vo.ArticleClassVO;
 import model.vo.ArticleVO;
+import model.vo.MemberVO;
 @WebServlet("/article")
 public class ArticleRServlet extends javax.servlet.http.HttpServlet{
     private static final long serialVersionUID = 2010L;
@@ -47,8 +49,12 @@ public class ArticleRServlet extends javax.servlet.http.HttpServlet{
         java.sql.Timestamp publishTime=new java.sql.Timestamp(time);
 //      呼叫model
         ArticleVO bean = new ArticleVO();
-        bean.setMemberId(id);
-        bean.setSubclassNo(subclassNo);
+        MemberVO member = new MemberVO();
+        member.setMemberId(id);
+        bean.setMember(member);
+        ArticleClassVO articleClass = new ArticleClassVO();
+        articleClass.setSubclassNo(subclassNo);
+        bean.setArticleClass(articleClass);
         bean.setArticleTitle(articleTitle);
         bean.setArticleContent(articleContent);
         bean.setPublishTime(publishTime);
@@ -86,8 +92,12 @@ public class ArticleRServlet extends javax.servlet.http.HttpServlet{
         long time=new java.util.Date().getTime();
         java.sql.Timestamp modifyTime=new java.sql.Timestamp(time);
         ArticleVO bean = new ArticleVO();
-        bean.setMemberId(id);
-        bean.setSubclassNo(subclassNo);
+        MemberVO member = new MemberVO();
+        member.setMemberId(id);
+        bean.setMember(member);
+        ArticleClassVO articleClass = new ArticleClassVO();
+        articleClass.setSubclassNo(subclassNo);
+        bean.setArticleClass(articleClass);
         bean.setArticleTitle(articleTitle);
         bean.setArticleContent(articleContent);
         bean.setModifyTime(modifyTime); 

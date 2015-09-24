@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.service.BroadcastOrderService;
+import model.service.MemberService;
 import model.vo.BroadcastOrderVO;
 @WebServlet("/broadcastOrder")
 public class BroadcastOrderRServlet extends javax.servlet.http.HttpServlet{
     private static final long serialVersionUID = 2010L;
-    private BroadcastOrderService service = null;
+    private BroadcastOrderService service;
+    private MemberService mService;
     
 //    public void setArticleRestful(ArticleRestful service){
 //        this.service = service;
 //    }
     public void init() throws ServletException{
     	service = new BroadcastOrderService();
+    	mService = new MemberService();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -45,7 +48,7 @@ public class BroadcastOrderRServlet extends javax.servlet.http.HttpServlet{
         java.sql.Timestamp broadcastTime=new java.sql.Timestamp(time);
 //      呼叫model
         BroadcastOrderVO bean = new BroadcastOrderVO();
-        bean.setMemberAccount(memberAccount);
+        bean.setMember(mService.searchByMemberAccount(memberAccount));
         bean.setBroadcastSite("http://itvvm.cloudapp.net/ITV/LiveShow?memberAccount="+memberAccount);
         bean.setBroadcastTitle(broadcastTitle);
         bean.setBroadcastTime(broadcastTime);
@@ -68,7 +71,7 @@ public class BroadcastOrderRServlet extends javax.servlet.http.HttpServlet{
         throws ServletException, IOException{
     	String keyword =request.getParameter("keyword");
     	//搜尋可能無法這麼便宜行事
-        request.setAttribute("articleList", service.searchBroadcast(keyword));        
+        request.setAttribute("articleList", service.broadcastOrder());        
     }
     
     public void update(HttpServletRequest request, HttpServletResponse response) 
@@ -80,7 +83,7 @@ public class BroadcastOrderRServlet extends javax.servlet.http.HttpServlet{
     	BroadcastOrderVO bean = new BroadcastOrderVO();
         bean.setBroadcastTitle(broadcastTitle);
         service.changeTitle(bean);
-        request.setAttribute("articleList", service.searchBroadcast(memberAccount));
+        request.setAttribute("articleList", service.searchAccount(memberAccount));
         //改完應該會想再看一下吧
     }
     

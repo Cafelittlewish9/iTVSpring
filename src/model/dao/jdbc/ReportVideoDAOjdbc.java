@@ -57,7 +57,7 @@ public class ReportVideoDAOjdbc implements ReportVideoDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(reportVideo);
+			session.save(reportVideo);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

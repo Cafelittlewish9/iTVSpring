@@ -107,7 +107,9 @@ public class ReportMemberServlet extends HttpServlet {
 		//呼叫Model
 		ReportMemberVO bean = new ReportMemberVO();
 		bean.setOrderId(convertOrderId);
-		bean.setReportedMemberId(convertReportedMemberId);
+		MemberVO member = new MemberVO();
+		member.setMemberId(convertReportedMemberId);
+		bean.setMember(member);
 		
 		//檢舉影片、管理員後台刪除檢舉
 		if(sendReportMember!=null && sendReportMember.equals("insert")){

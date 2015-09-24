@@ -80,7 +80,7 @@ public class LoginDAOjdbc implements LoginDAO {
 		return bean;
 	}
 
-	private static final String INSERT = "insert into Login(ip, memberAccount) values(?, ?)";
+//	private static final String INSERT = "insert into Login(ip, memberAccount) values(?, ?)";
 
 	@Override
 	public int insert(LoginVO bean) {
@@ -88,7 +88,7 @@ public class LoginDAOjdbc implements LoginDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

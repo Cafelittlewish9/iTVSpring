@@ -55,7 +55,7 @@ public class ReportMemberDAOjdbc implements ReportMemberDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(reportMember);
+			session.save(reportMember);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

@@ -68,7 +68,7 @@ public class ReportReplyArticleDAOjdbc implements ReportReplyArticleDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(reportReplyArticle);
+			session.save(reportReplyArticle);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

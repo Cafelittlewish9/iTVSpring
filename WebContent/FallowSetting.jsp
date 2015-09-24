@@ -16,7 +16,7 @@
 </center>
 
 <!-- Modal -->
-<div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="demoSetting" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" id="fallowModal" tabindex="-1" role="dialog" aria-labelledby="demoFallow" aria-hidden="true" data-backdrop="static">
 	<div class="modal-dialog">
 		<div class="modal-content">
 
@@ -24,7 +24,7 @@
 				<button type="button" class="close" data-dismiss="modal">
 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				</button>
-				<h4 class="modal-title" style="text-align: center" id="demoSetting">設定</h4>
+				<h4 class="modal-title" style="text-align: center" id="demoSetting">編輯追蹤名單</h4>
 			</div>
 			
 			<div class="modal-body">
