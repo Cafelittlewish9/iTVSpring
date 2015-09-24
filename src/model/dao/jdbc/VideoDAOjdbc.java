@@ -135,7 +135,7 @@ public class VideoDAOjdbc implements VideoDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (HibernateException e) {
@@ -155,7 +155,7 @@ public class VideoDAOjdbc implements VideoDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.update(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (HibernateException e) {

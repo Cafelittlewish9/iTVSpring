@@ -1,10 +1,5 @@
 package model.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -13,7 +8,6 @@ import org.hibernate.Session;
 import model.dao.ShowDAO;
 import model.vo.ShowVO;
 import model.vo.VideoVO;
-import util.ConvertType;
 import util.HibernateUtil;
 
 public class ShowDAOjdbc implements ShowDAO {
@@ -118,7 +112,7 @@ public class ShowDAOjdbc implements ShowDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -138,7 +132,7 @@ public class ShowDAOjdbc implements ShowDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.update(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -172,13 +166,20 @@ public class ShowDAOjdbc implements ShowDAO {
 	public static void main(String[] args) {
 
 		 ShowDAOjdbc dao = new ShowDAOjdbc();
-		 List<ShowVO> list = dao.selectJoinMember(2);
-		 for (ShowVO bean : list) {
-		 System.out.println(bean);
-		 System.out.println(bean.getVideo().getVideoTitle());
-		 System.out.println(bean.getVideo().getVideoId());
-		 }
+//		 List<ShowVO> list = dao.selectJoinMember(2);
+//		 for (ShowVO bean : list) {
+//		 System.out.println(bean);
+//		 System.out.println(bean.getVideo().getVideoTitle());
+//		 System.out.println(bean.getVideo().getVideoId());
+//		 }
 
+		 ShowVO bean = new ShowVO();
+		 bean.setMemberId(4);
+		 bean.setShowTime(new java.util.Date());
+		 VideoVO video = new VideoVO();
+		 video.setVideoId(11);
+		 bean.setVideo(video);
+		 System.out.println(dao.update(bean));
 	}
 
 }

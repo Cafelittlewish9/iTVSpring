@@ -13,6 +13,8 @@ public interface MemberDAO {
 	public List<MemberVO> getMemberList();
 
 	public int getId(String memberAccount);
+	
+	public List<Integer> searchId(String memberAccount);
 
 	public int update(MemberVO member);
 

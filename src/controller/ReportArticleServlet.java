@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.service.MemberService;
 import model.service.ReportArticleService;
+import model.vo.ArticleVO;
 import model.vo.MemberVO;
 import model.vo.ReportArticleVO;
 import util.ConvertType;
@@ -98,7 +99,9 @@ public class ReportArticleServlet extends HttpServlet {
 		//呼叫Model
 		ReportArticleVO bean = new ReportArticleVO();
 		bean.setOrderId(convertOrderId);
-		bean.setReportedArticleId(convertReportedArticleId);
+		ArticleVO article = new ArticleVO();
+		article.setArticleId(convertReportedArticleId);
+		bean.setArticle(article);
 		bean.setReportTime(convertReportTime);
 		bean.setReportReason(reportReason);
 		

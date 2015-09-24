@@ -35,7 +35,7 @@ public class MemberDAOjdbc implements MemberDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(member);
+			session.save(member);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -58,7 +58,7 @@ public class MemberDAOjdbc implements MemberDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(member);
+			session.save(member);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -97,10 +97,26 @@ public class MemberDAOjdbc implements MemberDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			Query query = session.createQuery("from MemberVO where memberAccount = ?");
-			query.setParameter(0, memberAccount);
-			MemberVO bean = (MemberVO) query.list().get(0);
-			result = bean.getMemberId();
+			Query query = session.createQuery("select memberId from MemberVO where memberAccount = ?").setParameter(0,
+					memberAccount);
+			result = (Integer) query.list().get(0);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<Integer> searchId(String memberAccount) {
+		List<Integer> result = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery("select memberId from MemberVO where memberAccount like ?")
+					.setParameter(0, "%" + memberAccount + "%");
+			result = (List<Integer>) query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			session.getTransaction().rollback();
@@ -123,7 +139,7 @@ public class MemberDAOjdbc implements MemberDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(member);
+			session.update(member);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

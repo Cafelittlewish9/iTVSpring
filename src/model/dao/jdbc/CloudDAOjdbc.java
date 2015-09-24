@@ -237,7 +237,7 @@ public class CloudDAOjdbc implements CloudDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(file);
+			session.save(file);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -247,7 +247,7 @@ public class CloudDAOjdbc implements CloudDAO {
 		return result;
 	}
 
-	private static final String UPDATE_FILE = "UPDATE Cloud SET filePath = ?, fileSize = ?, modifyTime = GETUTCDATE() WHERE fileId = ?";
+//	private static final String UPDATE_FILE = "UPDATE Cloud SET filePath = ?, fileSize = ?, modifyTime = GETUTCDATE() WHERE fileId = ?";
 
 	@Override
 	public int updateFile(CloudVO file) {
@@ -255,7 +255,7 @@ public class CloudDAOjdbc implements CloudDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(file);
+			session.update(file);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {

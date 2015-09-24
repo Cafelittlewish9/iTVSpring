@@ -8,14 +8,14 @@ public interface BroadcastOrderDAO {
 
 	public List<BroadcastOrderVO> selectAll();
 
-	public List<BroadcastOrderVO> selectByMemberAccountOrBroadcastTitle(String memberAccount, String broadcastTitle);
+	public List<BroadcastOrderVO> selectByMemberAccountOrBroadcastTitle(int memberId, String broadcastTitle);
 	
-	public BroadcastOrderVO selectByMemberAccount(String memberAccount);
+	public BroadcastOrderVO selectByMemberId(int memberId);
 
 	public int insert(BroadcastOrderVO bean);
 
 	public int update(BroadcastOrderVO bean);
 
-	public int delete(String memberAccount);
+	public int delete(int memberId);
 
 }

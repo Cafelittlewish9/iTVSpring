@@ -50,14 +50,14 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 	// broadcastTitle like ?";
 
 	@Override
-	public List<BroadcastOrderVO> selectByMemberAccountOrBroadcastTitle(String memberAccount, String broadcastTitle) {
+	public List<BroadcastOrderVO> selectByMemberAccountOrBroadcastTitle(int memberId, String broadcastTitle) {
 		List<BroadcastOrderVO> list = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
 			Query query = session
-					.createQuery("from BroadcastOrderVO WHERE memberAccount like ? OR broadcastTitle like ?")
-					.setParameter(0, "%" + memberAccount + "%").setParameter(1, "%" + broadcastTitle + "%");
+					.createQuery("from BroadcastOrderVO WHERE memberAccount = ? OR broadcastTitle like ?")
+					.setParameter(0, memberId).setParameter(1, "%" + broadcastTitle + "%");
 			list = query.list();
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -71,13 +71,12 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 	// BroadcastOrder WHERE memberAccount = ?";
 
 	@Override
-	public BroadcastOrderVO selectByMemberAccount(String memberAccount) {
+	public BroadcastOrderVO selectByMemberId(int memberId) {
 		BroadcastOrderVO bean = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			Query query = session.createQuery("from BroadcastOrderVO WHERE memberAccount = ?").setParameter(0,
-					memberAccount);
+			Query query = session.createQuery("from BroadcastOrderVO WHERE memberId = ?").setParameter(0, memberId);
 			bean = (BroadcastOrderVO) query.list().get(0);
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -87,7 +86,9 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 		return bean;
 	}
 
-//	private static final Strings INSERT = "INSERT INTO BroadcastOrder(memberAccount, broadcastSite, broadcastTitle, broadcastTime) VALUES(?, ?, ?, ?)";
+	// private static final Strings INSERT = "INSERT INTO
+	// BroadcastOrder(memberAccount, broadcastSite, broadcastTitle,
+	// broadcastTime) VALUES(?, ?, ?, ?)";
 
 	@Override
 	public int insert(BroadcastOrderVO bean) {
@@ -95,7 +96,7 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.save(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -105,7 +106,8 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 		return result;
 	}
 
-//	private static final String UPDATE = "UPDATE BroadcastOrder SET broadcastTitle = ? WHERE memberAccount = ?";
+	// private static final String UPDATE = "UPDATE BroadcastOrder SET
+	// broadcastTitle = ? WHERE memberAccount = ?";
 
 	@Override
 	public int update(BroadcastOrderVO bean) {
@@ -113,7 +115,7 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(bean);
+			session.update(bean);
 			session.getTransaction().commit();
 			result = 1;
 		} catch (Exception e) {
@@ -123,16 +125,17 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 		return result;
 	}
 
-//	private static final String DELETE = "DELETE FROM BroadcastOrder WHERE memberAccount = ?";
+	// private static final String DELETE = "DELETE FROM BroadcastOrder WHERE
+	// memberAccount = ?";
 
 	@Override
-	public int delete(String memberAccount) {
+	public int delete(int memberId) {
 		int result = -1;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			Query query = session.createQuery("delete from BroadcastOrderVO where memberAccount = ?").setParameter(0,
-					memberAccount);
+			Query query = session.createQuery("delete from BroadcastOrderVO where memberId = ?").setParameter(0,
+					memberId);
 			result = query.executeUpdate();
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -144,12 +147,12 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 
 	public static void main(String[] args) {
 		// SelectAll
-		 BroadcastOrderDAO temp = new BroadcastOrderDAOjdbc();
-		 List<BroadcastOrderVO> list = temp.selectAll();
-		 for(BroadcastOrderVO bean : list) {
-			 System.out.println(list);
-			 System.out.println(bean.getMember().getMemberAccount());
-		 }
+		BroadcastOrderDAO temp = new BroadcastOrderDAOjdbc();
+		List<BroadcastOrderVO> list = temp.selectAll();
+		for (BroadcastOrderVO bean : list) {
+			System.out.println(list);
+			System.out.println(bean.getMember().getMemberAccount());
+		}
 
 		// Insert
 		// String memberAccount = "FUN";
