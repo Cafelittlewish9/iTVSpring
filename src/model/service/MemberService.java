@@ -51,7 +51,9 @@ public class MemberService {
 				if (!bean.isSuspendMember()) {
 					if (!bean.isSuspendMember()) {
 						if (this.comparePassword(password, bean.getMemberPassword())) {
-							bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto()));
+							if(bean.getMemberPhoto()!=null){
+								bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto()));
+							}
 							member = bean;
 						}
 					}
@@ -121,7 +123,9 @@ public class MemberService {
 	// 會員查詢個資
 	public MemberVO showMemberInfo(String username, String password) {
 		MemberVO mvo = this.login1(username, password);
-		mvo.setMemberNickname(ConvertType.convertToBase64(mvo.getMemberPhoto()));
+		if (mvo.getMemberPhoto()!=null){
+			mvo.setMemberNickname(ConvertType.convertToBase64(mvo.getMemberPhoto()));
+		}		
 		return mvo;
 	}
 

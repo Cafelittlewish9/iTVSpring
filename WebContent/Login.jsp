@@ -159,7 +159,7 @@ $(function () {
       
       <div class="modal-body">
 <!-- 		<div class="upload-form"> -->
-			<form id="Login_form" method="post" action="<c:url value="login" />">
+			<form id="Login_form" method="post" action="<c:url value="/login.do" />">
 				<fieldset style="text-align:center">
 				
 				<div id="l_input1-1"  class="input-group">

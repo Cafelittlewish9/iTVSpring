@@ -87,11 +87,11 @@ public class Registry extends HttpServlet {
 				System.out.println(errorMsg.get(0));
 			}else{
 				try {				
-					MemberVO bean=new MemberVO();
-					ms.registry1(bean);
+					MemberVO bean=new MemberVO();					
 					bean.setMemberAccount(username);
 					bean.setMemberPassword(password.getBytes());
 					bean.setMemberEmail(usermail);
+					bean.setMemberRegisterTime(new java.util.Date());
 					bean.setBroadcastWebsite(broadcastWebsite);
 					if (nickname!=null){
 						bean.setMemberNickname(nickname);
@@ -103,7 +103,7 @@ public class Registry extends HttpServlet {
 					}else{
 						bean.setMemberBirthday(null);
 					}
-					ms.update(bean);
+					ms.registry1(bean);
 				} catch (Exception e) {
 					errorMsg.add("儲存資料時發生錯誤，請檢查，例外="+e.getMessage());
 					e.printStackTrace();
@@ -116,8 +116,8 @@ public class Registry extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("HomePageVersion3.jsp");
-			rd.forward(request, response);
+			
+			response.sendRedirect(path+"/Setting.jsp");
 			return;
 		}
 	}

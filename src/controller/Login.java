@@ -1,9 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +18,10 @@ import javax.xml.bind.DatatypeConverter;
 
 import model.service.LoginService;
 import model.service.MemberService;
+import model.vo.LoginVO;
 import model.vo.MemberVO;
 
-@WebServlet("/login")
+@WebServlet("/login.do")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService ms;
@@ -33,42 +36,79 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
+		String path = request.getRequestURI();
+		HttpSession session = request.getSession();
+		Map<String, String> errorMsgMap = new HashMap<String, String>();
+		request.setAttribute("ErrorMsgKey", errorMsgMap);
 		String username = request.getParameter("memberAccount");
 		String password = request.getParameter("memberPassword");
 		String operation = request.getParameter("operation");
-		String path = request.getRequestURI();
-		System.out.println(path);
-		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("error", errors);
+		String requestURI = (String) session.getAttribute("requestURI");
 		if (username == null || username.trim().length() == 0) {
-			errors.put("username", "請輸入帳號");
+			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 		}
-
 		if (password == null || password.trim().length() == 0) {
-			errors.put("password", "請輸入密碼");
+			errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
 		}
-		if (errors != null && !errors.isEmpty()) {
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
-			return;
-		}
-
+				
 		MemberVO bean = ms.login1(username, password);
-		if (operation != null && operation.equals("登入") && bean != null) {
-			HttpSession session = request.getSession();
-			String ip = request.getRemoteAddr();// 有個ip and then?
-			System.out.println(ip);
-			session.setAttribute("user", bean);
-			System.out.println("登入成功");
-			response.sendRedirect("HomePageVersion3.jsp");
-			return;
-		} else if (operation != null && operation.equals("提取密碼")) {
-			request.getRequestDispatcher("GetPassword.jsp").forward(request, response);// 送去客服頁面
-			return;
-		} else {
-			System.out.println("登入失敗");
-			errors.put("password", "登入失敗，請再試一遍");// 放在session裡
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
+		LoginVO log=new LoginVO();
+		Cookie cookieUser = null;
+		Cookie cookiePassword = null;
+		if (operation != null && operation.equals("登入") && bean != null){
+			
+			String ip = request.getRemoteAddr();
+			log.setIp(ip);
+			log.setMemberAccount(username);
+			log.setLoginTime(new java.util.Date());
+			ls.login(log);
+			cookieUser = new Cookie("user", username);
+			cookieUser.setMaxAge(30*60*60);
+			cookieUser.setPath(request.getContextPath());
+			String encodePassword = DatatypeConverter.printBase64Binary(password.getBytes());
+			cookiePassword = new Cookie("password", encodePassword);
+			cookiePassword.setMaxAge(30*60*60);
+			cookiePassword.setPath(request.getContextPath());
+			session.setAttribute("user",bean );			
+		}else {
+			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
+			cookieUser = new Cookie("user", username);
+			cookieUser.setMaxAge(0);   
+			cookieUser.setPath(request.getContextPath());
+			String encodePassword = DatatypeConverter.printBase64Binary(password.getBytes());
+			cookiePassword = new Cookie("password", encodePassword);
+			cookiePassword.setMaxAge(0);
+			cookiePassword.setPath(request.getContextPath());
 		}
+		response.addCookie(cookieUser);
+		response.addCookie(cookiePassword);
+		
+		if (!errorMsgMap.isEmpty()) {
+			RequestDispatcher rd = request.getRequestDispatcher("Login2.jsp");
+			rd.forward(request, response);
+			return;
+		}
+		
+		if (errorMsgMap.isEmpty()) {
+			if (requestURI != null) {
+//				requestURI = (requestURI.length() == 0 ? request
+//						.getContextPath() : requestURI);
+				requestURI = (requestURI.length() == 0 ? request
+						.getContextPath() : path+"/HomePageVersion3.jsp");
+				response.sendRedirect(response.encodeRedirectURL(requestURI));
+				//少見的XX判斷式
+				return;
+			} else {
+				response.sendRedirect(response.encodeRedirectURL(request
+						.getContextPath()));
+				return;
+			}
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("Login2.jsp");
+			rd.forward(request, response);
+			return;
+		}
+			
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
