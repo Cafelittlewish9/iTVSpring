@@ -1,28 +1,12 @@
 package model.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import model.dao.BroadcastOrderDAO;
-import model.dao.VideoDAO;
 import model.vo.BroadcastOrderVO;
-import model.vo.MemberVO;
-import model.vo.VideoVO;
-import util.ConvertType;
-import util.GC;
 import util.HibernateUtil;
 
 public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {

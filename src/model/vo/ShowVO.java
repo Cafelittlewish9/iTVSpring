@@ -19,24 +19,24 @@ public class ShowVO implements Serializable {
 		return "節目網址: " + video.getVideoWebsite() + " (" + date + ")" + video.getVideoId();
 	}
 
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (obj == this) {
-//			return true;
-//		}
-//		if (!(obj instanceof ShowVO)) {
-//			return false;
-//		}
-//		ShowVO bean = (ShowVO) obj;
-//		return new EqualsBuilder().append(this.memberId, bean.getMemberId()).append(this.videoId, bean.getVideoId())
-//				.isEquals();
-//
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return new HashCodeBuilder().append(this.memberId).append(this.videoId).toHashCode();
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (!(obj instanceof ShowVO)) {
+			return false;
+		}
+		ShowVO bean = (ShowVO) obj;
+		return new EqualsBuilder().append(this.memberId, bean.getMemberId()).append(this.video.getVideoId(), bean.getVideo().getVideoId())
+				.isEquals();
+
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.memberId).append(this.video.getVideoId()).toHashCode();
+	}
 
 	public int getMemberId() {
 		return memberId;
