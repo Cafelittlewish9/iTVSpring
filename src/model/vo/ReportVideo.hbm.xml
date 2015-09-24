@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.ReportVideoVO" table="ReportVideo">
+		<id name="orderId" column="orderId">
+			<generator class="identity" />
+		</id>
+		<property name="reportTime" column="reportTime" />
+		<property name="reportReason" column="reportReason" />
+		<many-to-one name="video" class="model.vo.VideoVO" lazy="false">
+			<column name="reportedVideoId" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

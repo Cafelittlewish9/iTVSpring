@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.VideoCommentsVO" table="VideoComments">
+		<id name="commentId" column="commentId">
+			<generator class="identity" />
+		</id>
+		<property name="commentContent" column="commentContent" />
+		<property name="commentTime" column="commentTime" />
+		
+		<many-to-one name="member" class="model.vo.MemberVO" lazy="false">
+			<column name="memberId" />
+		</many-to-one>
+		<many-to-one name="video" class="model.vo.VideoVO" lazy="false">
+			<column name="videoId" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

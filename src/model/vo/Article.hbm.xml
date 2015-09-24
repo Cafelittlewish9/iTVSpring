@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.ArticleVO" table="Article">
+		<id name="articleId" column="articleId">
+			<generator class="identity" />
+		</id>
+		<property name="articleTitle" column="articleTitle" />
+		<property name="articleContent" column="articleContent" />
+		<property name="publishTime" column="publishTime" />
+		<property name="modifyTime" column="modifyTime" />
+		<property name="watchTimes" column="watchTimes" />
+		<many-to-one name="member" class="model.vo.MemberVO" lazy="false">
+			<column name="memberId" />
+		</many-to-one>
+		<many-to-one name="articleClass" class="model.vo.ArticleClassVO" lazy="false">
+			<column name="subclassNo" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

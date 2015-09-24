@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.ShowVO" table="Show">
+		<composite-id>
+			<key-property name="memberId" column="memberId" />
+			<key-property name="showTime" column="showTime" />
+		</composite-id>
+		<many-to-one name="video" class="model.vo.VideoVO" lazy="false">
+			<column name="videoId" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

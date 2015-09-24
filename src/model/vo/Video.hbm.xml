@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.VideoVO" table="Video" lazy="false">
+		<id name="videoId" column="videoId">
+			<generator class="identity" />
+		</id>
+		<property name="videoWebsite" column="videoWebsite" />
+		<property name="videoClassName" column="videoClassName" />
+		<property name="videoTitle" column="videoTitle" />
+		<property name="videoName" column="videoName" />
+		<property name="videoPath" column="videoPath" />
+		<property name="videoUploadTime" column="videoUploadTime" />
+		<property name="videoWatchTimes" column="videoWatchTimes" />
+		<property name="videoDescription" column="videoDescription" />
+		<property name="videoDescriptionModifyTime" column="videoDescriptionModifyTime" />
+
+		<many-to-one name="member" class="model.vo.MemberVO" lazy="false"
+			column="memberId" />
+	</class>
+</hibernate-mapping>

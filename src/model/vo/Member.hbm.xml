@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.MemberVO" table="Member">
+		<id name="memberId" column="memberId">
+			<generator class="identity" />
+		</id>
+		<property name="memberAccount" column="memberAccount" />
+		<property name="memberPassword" column="memberPassword" />
+		<property name="memberEmail" column="memberEmail" />
+		<property name="memberFB" column="memberFB" />
+		<property name="memberGoogle" column="memberGoogle" />
+		<property name="memberTwitter" column="memberTwitter" />
+		<property name="memberName" column="memberName" />
+		<property name="memberNickname" column="memberNickname" />
+		<property name="memberBirthday" column="memberBirthday" />
+		<property name="memberPhoto" column="memberPhoto" />
+		<property name="memberRegisterTime" column="memberRegisterTime" />
+		<property name="memberSelfIntroduction" column="memberSelfIntroduction" />
+		<property name="broadcastWebsite" column="broadcastWebsite" />
+		<property name="broadcastTitle" column="broadcastTitle" />
+		<property name="broadcastClassName" column="broadcastClassName" />
+		<property name="broadcastTime" column="broadcastTime" />
+		<property name="broadcastDescription" column="broadcastDescription" />
+		<property name="broadcastWatchTimes" column="broadcastWatchTimes" />
+		<property name="suspendMember" column="suspendMember" />
+	</class>
+</hibernate-mapping>

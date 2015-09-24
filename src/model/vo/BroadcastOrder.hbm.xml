@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.BroadcastOrderVO" table="BroadcastOrder">
+		<id name="memberAccount" column="memberAccount">
+		</id>
+		<property name="broadcastSite" column="broadcastSite" />
+		<property name="broadcastTitle" column="broadcastTitle" />
+		<property name="broadcastTime" column="broadcastTime" />
+		<property name="broadcastWatchTimes" column="broadcastWatchTimes" />
+		<one-to-one name="member" class="model.vo.MemberVO" />
+	</class>
+</hibernate-mapping>

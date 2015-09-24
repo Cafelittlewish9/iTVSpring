@@ -1,0 +1,24 @@
+	.stream-video-info--buttons {
+    	width: 510px;
+    	float: left;
+	}
+	.stream-video-info--buttons button{
+	    font-size: 12px;
+	    color: #fff;
+	    font-weight: 700;
+	    float: left;
+	    background-color: #1976d2;
+	    line-height: 25px;
+	    margin-right: 5px;
+	    height: 25px;
+	    min-width: 84px;
+	    text-align: center;
+	    border: none;
+	    margin-bottom: 5px;
+	    padding: 0 10px;
+	    text-transform: uppercase;
+	}
+	.stream-video-info--buttons button:hover{
+	text-decoration:none;
+	}
+	

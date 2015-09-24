@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.vo.LoginVO" table="Login">
+		<composite-id>
+			<key-property name="loginTime" column="loginTime" />
+			<key-property name="ip" column="ip" />
+		</composite-id>
+		<property name="memberAccount" column="memberAccount" />
+	</class>
+</hibernate-mapping>

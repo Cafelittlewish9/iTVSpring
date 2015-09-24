@@ -1,0 +1,47 @@
+package model.vo;
+
+import java.io.Serializable;
+
+public class ChannelVO implements Serializable {
+	private int memberId;
+	private byte channelNo;
+	private String broadcastWebsite;
+	private MemberVO member;
+
+	@Override
+	public String toString() {
+		return "頻道 " + channelNo + ": " + broadcastWebsite;
+	}
+
+	public int getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+
+	public byte getChannelNo() {
+		return channelNo;
+	}
+
+	public void setChannelNo(byte channelNo) {
+		this.channelNo = channelNo;
+	}
+
+	public String getBroadcastWebsite() {
+		return broadcastWebsite;
+	}
+
+	public void setBroadcastWebsite(String broadcastWebsite) {
+		this.broadcastWebsite = broadcastWebsite;
+	}
+
+	public MemberVO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberVO member) {
+		this.member = member;
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		
+<!-- 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
+<!--         <property name="hibernate.connection.url">jdbc:sqlserver://xase7q8rgb.database.windows.net:1433;database=iTV</property> -->
+<!--         <property name="hibernate.connection.username">iTVSoCool@xase7q8rgb</property> -->
+<!--         <property name="hibernate.connection.password">iTVisgood911</property> -->
+	
+		<property name="hibernate.connection.datasource">java:comp/env/jdbc/iTV</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.jdbc.use_streams_for_binary">true</property>
+		
+		<mapping resource="model/vo/Article.hbm.xml" />
+		<mapping resource="model/vo/ArticleClass.hbm.xml" />
+		<mapping resource="model/vo/Black.hbm.xml" />
+		<mapping resource="model/vo/BroadcastOrder.hbm.xml" />
+		<mapping resource="model/vo/Channel.hbm.xml" />
+		<mapping resource="model/vo/Cloud.hbm.xml" />
+		<mapping resource="model/vo/Follow.hbm.xml" />
+		<mapping resource="model/vo/Login.hbm.xml" />
+		<mapping resource="model/vo/Member.hbm.xml" />
+		<mapping resource="model/vo/ReplyArticle.hbm.xml" />
+		<mapping resource="model/vo/ReportArticle.hbm.xml" />
+		<mapping resource="model/vo/ReportMember.hbm.xml" />
+		<mapping resource="model/vo/ReportReplyArticle.hbm.xml" />
+		<mapping resource="model/vo/ReportVideo.hbm.xml" />
+		<mapping resource="model/vo/Show.hbm.xml" />
+		<mapping resource="model/vo/Video.hbm.xml" />
+		<mapping resource="model/vo/VideoComments.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
