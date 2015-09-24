@@ -14,26 +14,26 @@ public class FollowVO implements Serializable {
 	public String toString() {
 		return memberId + ": " + member.getMemberAccount() + " (被追隨的)";
 	}
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (obj == this) {
-//			return true;
-//		}
-//		if (!(obj instanceof FollowVO)) {
-//			return false;
-//		}
-//		FollowVO bean = (FollowVO) obj;
-//		return new EqualsBuilder()
-//				.append(this.memberId, bean.getMemberId())
-//				.append(this.followId, bean.getFollowId())
-//				.isEquals();
-//
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return new HashCodeBuilder().append(this.memberId).append(this.followId).toHashCode();
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (!(obj instanceof FollowVO)) {
+			return false;
+		}
+		FollowVO bean = (FollowVO) obj;
+		return new EqualsBuilder()
+				.append(this.memberId, bean.getMemberId())
+				.append(this.member.getMemberId(), bean.getMember().getMemberId())
+				.isEquals();
+
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.memberId).append(this.member.getMemberId()).toHashCode();
+	}
 	public int getMemberId() {
 		return memberId;
 	}

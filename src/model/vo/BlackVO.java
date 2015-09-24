@@ -15,27 +15,27 @@ public class BlackVO implements Serializable {
 		return memberId + ": " + member.getMemberId() + " (被黑的)";
 	}
 
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (obj == this) {
-//			return true;
-//		}
-//		if (!(obj instanceof BlackVO)) {
-//			return false;
-//		}
-//		BlackVO bean = (BlackVO) obj;
-//		return new EqualsBuilder()
-//				.append(this.memberId, bean.getMemberId())
-//				.append(this.blackedId, bean.getBlackedId())
-//				.isEquals();
-//
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		return new HashCodeBuilder().append(this.memberId).append(this.blackedId).toHashCode();
-//	}
-//
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (!(obj instanceof BlackVO)) {
+			return false;
+		}
+		BlackVO bean = (BlackVO) obj;
+		return new EqualsBuilder()
+				.append(this.memberId, bean.getMemberId())
+				.append(this.member.getMemberId(), bean.getMember().getMemberId())
+				.isEquals();
+
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.memberId).append(this.member.getMemberId()).toHashCode();
+	}
+
 	public int getMemberId() {
 		return memberId;
 	}
