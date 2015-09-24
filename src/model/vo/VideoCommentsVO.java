@@ -5,12 +5,11 @@ import java.text.SimpleDateFormat;
 
 public class VideoCommentsVO implements Serializable {
 	private int commentId;
-	private int memberId;
+//	private int memberId;
 	private int videoId;
 	private String commentContent;
 	private java.util.Date commentTime;
 	private MemberVO member;
-	private VideoVO video;
 
 	@Override
 	public String toString() {
@@ -27,13 +26,13 @@ public class VideoCommentsVO implements Serializable {
 		this.commentId = commentId;
 	}
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
+//	public int getMemberId() {
+//		return memberId;
+//	}
+//
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
+//	}
 
 	public int getVideoId() {
 		return videoId;
@@ -65,13 +64,5 @@ public class VideoCommentsVO implements Serializable {
 
 	public void setMember(MemberVO member) {
 		this.member = member;
-	}
-
-	public VideoVO getVideo() {
-		return video;
-	}
-
-	public void setVideo(VideoVO video) {
-		this.video = video;
 	}
 }

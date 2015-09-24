@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 
 public class VideoVO {
 	private int videoId;
-	private int memberId;
+//	private int memberId;
 	private String videoWebsite;
 	private String videoClassName;
 	private String videoTitle;
@@ -31,13 +31,13 @@ public class VideoVO {
 		this.videoId = videoId;
 	}
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
+//	public int getMemberId() {
+//		return memberId;
+//	}
+//
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
+//	}
 
 	public String getVideoWebsite() {
 		return videoWebsite;

@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ReportArticleVO implements Serializable {
 	private int orderId;
-	private int reportedArticleId;
+//	private int reportedArticleId;
 	private java.util.Date reportTime;
 	private String reportReason;
 	private ArticleVO article;
@@ -17,7 +17,7 @@ public class ReportArticleVO implements Serializable {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(reportTime);
-		return orderId + "被檢舉的文章ID為: " + reportedArticleId + " (" + date + ")";
+		return orderId + "被檢舉的文章ID為: " + article.getArticleId() + " (" + date + ")";
 	}
 
 	public int getOrderId() {
@@ -28,13 +28,13 @@ public class ReportArticleVO implements Serializable {
 		this.orderId = orderId;
 	}
 
-	public int getReportedArticleId() {
-		return reportedArticleId;
-	}
-
-	public void setReportedArticleId(int reportedArticleId) {
-		this.reportedArticleId = reportedArticleId;
-	}
+//	public int getReportedArticleId() {
+//		return reportedArticleId;
+//	}
+//
+//	public void setReportedArticleId(int reportedArticleId) {
+//		this.reportedArticleId = reportedArticleId;
+//	}
 
 	public java.util.Date getReportTime() {
 		return reportTime;

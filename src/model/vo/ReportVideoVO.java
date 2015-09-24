@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class ReportVideoVO implements Serializable {
 	private int orderId;
-	private int reportedVideoId;
+//	private int reportedVideoId;
 	private java.util.Date reportTime;
 	private String reportReason;
 	private VideoVO video;
@@ -14,7 +14,7 @@ public class ReportVideoVO implements Serializable {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(reportTime);
-		return orderId + "被檢舉的影片ID為: " + reportedVideoId + " (" + date + ")" + video.getMemberId()
+		return orderId + "被檢舉的影片ID為: " + video.getVideoId() + " (" + date + ")" + video.getMember().getMemberId()
 				+ video.getMember().getMemberAccount();
 	}
 
@@ -26,13 +26,13 @@ public class ReportVideoVO implements Serializable {
 		this.orderId = orderId;
 	}
 
-	public int getReportedVideoId() {
-		return reportedVideoId;
-	}
-
-	public void setReportedVideoId(int reportedVideoId) {
-		this.reportedVideoId = reportedVideoId;
-	}
+//	public int getReportedVideoId() {
+//		return reportedVideoId;
+//	}
+//
+//	public void setReportedVideoId(int reportedVideoId) {
+//		this.reportedVideoId = reportedVideoId;
+//	}
 
 	public java.util.Date getReportTime() {
 		return reportTime;

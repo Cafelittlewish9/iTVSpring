@@ -7,10 +7,11 @@
 	<class name="model.vo.ShowVO" table="Show">
 		<composite-id>
 			<key-property name="memberId" column="memberId" />
-			<key-property name="showTime" column="showTime" />
+			<key-many-to-one name="video" class="model.vo.VideoVO" lazy="false" column="videoId" />
 		</composite-id>
-		<many-to-one name="video" class="model.vo.VideoVO" lazy="false">
-			<column name="videoId" />
-		</many-to-one>
+		<property name="showTime" column="showTime" />
+<!-- 		<many-to-one name="video" class="model.vo.VideoVO" lazy="false"> -->
+<!-- 			<column name="videoId" /> -->
+<!-- 		</many-to-one> -->
 	</class>
 </hibernate-mapping>

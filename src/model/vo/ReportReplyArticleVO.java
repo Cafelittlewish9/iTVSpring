@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class ReportReplyArticleVO implements Serializable {
 	private int orderId;
-	private int reportedReplyArticleId;
+//	private int reportedReplyArticleId;
 	private java.util.Date reportTime;
 	private String reportReason;
 	private ReplyArticleVO replyArticle;
@@ -14,7 +14,7 @@ public class ReportReplyArticleVO implements Serializable {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(reportTime);
-		return orderId + "被檢舉的回覆文章ID為: " + reportedReplyArticleId + " (" + date + ")" + replyArticle.getMemberId()
+		return orderId + "被檢舉的回覆文章ID為: " + replyArticle.getReplyArticleId() + " (" + date + ")" + replyArticle.getMember().getMemberId()
 				+ replyArticle.getMember().getMemberAccount();
 	}
 
@@ -26,13 +26,13 @@ public class ReportReplyArticleVO implements Serializable {
 		this.orderId = orderId;
 	}
 
-	public int getReportedReplyArticleId() {
-		return reportedReplyArticleId;
-	}
-
-	public void setReportedReplyArticleId(int reportedReplyArticleId) {
-		this.reportedReplyArticleId = reportedReplyArticleId;
-	}
+//	public int getReportedReplyArticleId() {
+//		return reportedReplyArticleId;
+//	}
+//
+//	public void setReportedReplyArticleId(int reportedReplyArticleId) {
+//		this.reportedReplyArticleId = reportedReplyArticleId;
+//	}
 
 	public java.util.Date getReportTime() {
 		return reportTime;

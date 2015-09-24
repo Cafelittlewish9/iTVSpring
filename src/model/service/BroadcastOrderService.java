@@ -38,7 +38,7 @@ public class BroadcastOrderService {
 		if (bean != null) {
 			int temp = dao.insert(bean);
 			if (temp == 1) {
-				result = dao.selectByMemberAccount(bean.getMemberAccount());
+				result = dao.selectByMemberAccount(bean.getMember().getMemberAccount());
 			}
 		}
 		return result;
@@ -64,5 +64,11 @@ public class BroadcastOrderService {
 			}
 		}
 		return result;
+	}
+	
+	public static void main(String[] args) {
+		BroadcastOrderService service = new BroadcastOrderService();
+		BroadcastOrderVO bean = service.searchAccount("A");
+		System.out.println(bean);
 	}
 }

@@ -6,8 +6,8 @@ import java.text.SimpleDateFormat;
 public class ArticleVO implements Serializable {
 
 	private int articleId;
-	private int memberId;
-	private String subclassNo;
+//	private int memberId;
+//	private String subclassNo;
 	private String articleTitle;
 	private String articleContent;
 	private java.util.Date publishTime;
@@ -31,21 +31,21 @@ public class ArticleVO implements Serializable {
 		this.articleId = articleId;
 	}
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public String getSubclassNo() {
-		return subclassNo;
-	}
-
-	public void setSubclassNo(String subclassNo) {
-		this.subclassNo = subclassNo;
-	}
+//	public int getMemberId() {
+//		return memberId;
+//	}
+//
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
+//	}
+//
+//	public String getSubclassNo() {
+//		return subclassNo;
+//	}
+//
+//	public void setSubclassNo(String subclassNo) {
+//		this.subclassNo = subclassNo;
+//	}
 
 	public String getArticleTitle() {
 		return articleTitle;

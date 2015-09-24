@@ -7,9 +7,10 @@
 	<class name="model.vo.BlackVO" table="Black">
 		<composite-id>
 			<key-property name="memberId" column="memberId" />
+			<key-many-to-one name="member" class="model.vo.MemberVO" lazy="false" column="blackedId" />
 		</composite-id>
-		<many-to-one name="member" class="model.vo.MemberVO" lazy="false">
-			<column name="blackedId" />
-		</many-to-one>
+<!-- 		<many-to-one name="member" class="model.vo.MemberVO" lazy="false"> -->
+<!-- 			<column name="blackedId" /> -->
+<!-- 		</many-to-one> -->
 	</class>
 </hibernate-mapping>

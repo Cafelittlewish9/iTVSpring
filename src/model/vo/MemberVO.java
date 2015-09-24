@@ -18,11 +18,6 @@ public class MemberVO implements Serializable {
 	private java.util.Date memberRegisterTime;
 	private String memberSelfIntroduction;
 	private String broadcastWebsite;
-	private String broadcastTitle;
-	private String broadcastClassName;
-	private java.util.Date broadcastTime;
-	private String broadcastDescription;
-	private long broadcastWatchTimes;
 	private boolean suspendMember;
 
 	@Override
@@ -140,46 +135,6 @@ public class MemberVO implements Serializable {
 
 	public void setBroadcastWebsite(String broadcastWebsite) {
 		this.broadcastWebsite = broadcastWebsite;
-	}
-
-	public String getBroadcastTitle() {
-		return broadcastTitle;
-	}
-
-	public void setBroadcastTitle(String broadcastTitle) {
-		this.broadcastTitle = broadcastTitle;
-	}
-
-	public String getBroadcastClassName() {
-		return broadcastClassName;
-	}
-
-	public void setBroadcastClassName(String broadcastClassName) {
-		this.broadcastClassName = broadcastClassName;
-	}
-
-	public java.util.Date getBroadcastTime() {
-		return broadcastTime;
-	}
-
-	public void setBroadcastTime(java.util.Date broadcastTime) {
-		this.broadcastTime = broadcastTime;
-	}
-
-	public String getBroadcastDescription() {
-		return broadcastDescription;
-	}
-
-	public void setBroadcastDescription(String broadcastDescription) {
-		this.broadcastDescription = broadcastDescription;
-	}
-
-	public long getBroadcastWatchTimes() {
-		return broadcastWatchTimes;
-	}
-
-	public void setBroadcastWatchTimes(long broadcastWatchTimes) {
-		this.broadcastWatchTimes = broadcastWatchTimes;
 	}
 
 	public boolean isSuspendMember() {

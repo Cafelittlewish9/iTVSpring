@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 
 public class ReplyArticleVO implements Serializable {
 	private int replyArticleId;
-	private int memberId;
-	private int articleId;
+//	private int memberId;
+//	private int articleId;
 	private String replyContent;
 	private java.util.Date publishTime;
 	private java.util.Date modifyTime;
@@ -17,7 +17,7 @@ public class ReplyArticleVO implements Serializable {
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(publishTime);
-		return replyArticleId + "回覆的文章ID為: " + articleId + " (" + date + ")" + "帳號：" + member.getMemberAccount()
+		return replyArticleId + "回覆的文章ID為: " + article.getArticleId() + " (" + date + ")" + "帳號：" + member.getMemberAccount()
 				+ "會員照片" + member.getMemberPhoto();
 	}
 
@@ -29,21 +29,21 @@ public class ReplyArticleVO implements Serializable {
 		this.replyArticleId = replyArticleId;
 	}
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
-
-	public int getArticleId() {
-		return articleId;
-	}
-
-	public void setArticleId(int articleId) {
-		this.articleId = articleId;
-	}
+//	public int getMemberId() {
+//		return memberId;
+//	}
+//
+//	public void setMemberId(int memberId) {
+//		this.memberId = memberId;
+//	}
+//
+//	public int getArticleId() {
+//		return articleId;
+//	}
+//
+//	public void setArticleId(int articleId) {
+//		this.articleId = articleId;
+//	}
 
 	public String getReplyContent() {
 		return replyContent;

@@ -119,9 +119,6 @@ public class MemberServlet extends HttpServlet {
 		bean.setMemberEmail(memberEmail);
 		bean.setMemberNickname(memberNickname);
 		bean.setMemberBirthday(convertMemberBirthday);
-		bean.setBroadcastTitle(broadcastTitle);
-		bean.setBroadcastClassName(broadcastClassName);
-		bean.setBroadcastDescription(broadcastDescription);
 		
 		//會員修改資料
 //		if(UpdateMemberInfo!=null && UpdateMemberInfo.equals("update")){

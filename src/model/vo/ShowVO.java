@@ -9,35 +9,34 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class ShowVO implements Serializable {
 	private int memberId;
 	private java.util.Date showTime;
-	private int videoId;
+//	private int videoId;
 	private VideoVO video;
-	private MemberVO member;
 
 	@Override
 	public String toString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = sdf.format(showTime);
-		return "節目網址: " + video.getVideoWebsite() + " (" + date + ")";
+		return "節目網址: " + video.getVideoWebsite() + " (" + date + ")" + video.getVideoId();
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof ShowVO)) {
-			return false;
-		}
-		ShowVO bean = (ShowVO) obj;
-		return new EqualsBuilder().append(this.memberId, bean.getMemberId()).append(this.showTime, bean.getShowTime())
-				.isEquals();
-
-	}
-
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(this.memberId).append(this.showTime).toHashCode();
-	}
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (obj == this) {
+//			return true;
+//		}
+//		if (!(obj instanceof ShowVO)) {
+//			return false;
+//		}
+//		ShowVO bean = (ShowVO) obj;
+//		return new EqualsBuilder().append(this.memberId, bean.getMemberId()).append(this.videoId, bean.getVideoId())
+//				.isEquals();
+//
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return new HashCodeBuilder().append(this.memberId).append(this.videoId).toHashCode();
+//	}
 
 	public int getMemberId() {
 		return memberId;
@@ -55,13 +54,13 @@ public class ShowVO implements Serializable {
 		this.showTime = showTime;
 	}
 
-	public int getVideoId() {
-		return videoId;
-	}
-
-	public void setVideoId(int videoId) {
-		this.videoId = videoId;
-	}
+//	public int getVideoId() {
+//		return videoId;
+//	}
+//
+//	public void setVideoId(int videoId) {
+//		this.videoId = videoId;
+//	}
 
 	public VideoVO getVideo() {
 		return video;
@@ -70,13 +69,4 @@ public class ShowVO implements Serializable {
 	public void setVideo(VideoVO video) {
 		this.video = video;
 	}
-
-	public MemberVO getMember() {
-		return member;
-	}
-
-	public void setMember(MemberVO member) {
-		this.member = member;
-	}
-
 }

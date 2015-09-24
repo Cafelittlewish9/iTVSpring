@@ -6,12 +6,12 @@
 <hibernate-configuration>
 	<session-factory>
 		
-<!-- 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
-<!--         <property name="hibernate.connection.url">jdbc:sqlserver://xase7q8rgb.database.windows.net:1433;database=iTV</property> -->
-<!--         <property name="hibernate.connection.username">iTVSoCool@xase7q8rgb</property> -->
-<!--         <property name="hibernate.connection.password">iTVisgood911</property> -->
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://xase7q8rgb.database.windows.net:1433;database=iTV</property>
+        <property name="hibernate.connection.username">iTVSoCool@xase7q8rgb</property>
+        <property name="hibernate.connection.password">iTVisgood911</property>
 	
-		<property name="hibernate.connection.datasource">java:comp/env/jdbc/iTV</property>
+<!-- 		<property name="hibernate.connection.datasource">java:comp/env/jdbc/iTV</property> -->
 		
 		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
 		<property name="hibernate.show_sql">true</property>
@@ -24,7 +24,6 @@
 		<mapping resource="model/vo/ArticleClass.hbm.xml" />
 		<mapping resource="model/vo/Black.hbm.xml" />
 		<mapping resource="model/vo/BroadcastOrder.hbm.xml" />
-		<mapping resource="model/vo/Channel.hbm.xml" />
 		<mapping resource="model/vo/Cloud.hbm.xml" />
 		<mapping resource="model/vo/Follow.hbm.xml" />
 		<mapping resource="model/vo/Login.hbm.xml" />

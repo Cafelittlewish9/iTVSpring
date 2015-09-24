@@ -103,7 +103,7 @@ public class BlackDAOjdbc implements BlackDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			Query query = session.createQuery("delete from BlackVO where memberId = ? and blackedId = ?").setParameter(0, bean.getMemberId()).setParameter(1, bean.getBlackedId());
+			Query query = session.createQuery("delete from BlackVO where memberId = ? and blackedId = ?").setParameter(0, bean.getMemberId()).setParameter(1, bean.getMember().getMemberId());
 			result = query.executeUpdate();
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -144,9 +144,9 @@ public class BlackDAOjdbc implements BlackDAO {
 //		System.out.println(blackDao.removeAll(4));
 		// System.out.println(blackDao.markBlack(2,4));
 		// System.out.println(blackDao.markBlack(5,5));
-//		for (BlackVO bean : blackDao.getList(4)) {
-//			System.out.println(bean + bean.getMember().getMemberAccount());
-//		}
+		for (BlackVO bean : blackDao.getList(4)) {
+			System.out.println(bean + bean.getMember().getMemberAccount());
+		}
 
 		// System.out.println(blackDao.removeBlack(4, 2));
 		// System.out.println(blackDao.removeAll(4));

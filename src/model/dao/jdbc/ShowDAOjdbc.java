@@ -171,12 +171,13 @@ public class ShowDAOjdbc implements ShowDAO {
 
 	public static void main(String[] args) {
 
-		// ShowDAOjdbc dao = new ShowDAOjdbc();
-		// List<ShowVO> list = dao.selectJoinMember(2);
-		// for (ShowVO bean : list) {
-		// System.out.println(bean);
-		// System.out.println(bean.getTitle());
-		// }
+		 ShowDAOjdbc dao = new ShowDAOjdbc();
+		 List<ShowVO> list = dao.selectJoinMember(2);
+		 for (ShowVO bean : list) {
+		 System.out.println(bean);
+		 System.out.println(bean.getVideo().getVideoTitle());
+		 System.out.println(bean.getVideo().getVideoId());
+		 }
 
 	}
 

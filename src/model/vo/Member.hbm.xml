@@ -21,11 +21,6 @@
 		<property name="memberRegisterTime" column="memberRegisterTime" />
 		<property name="memberSelfIntroduction" column="memberSelfIntroduction" />
 		<property name="broadcastWebsite" column="broadcastWebsite" />
-		<property name="broadcastTitle" column="broadcastTitle" />
-		<property name="broadcastClassName" column="broadcastClassName" />
-		<property name="broadcastTime" column="broadcastTime" />
-		<property name="broadcastDescription" column="broadcastDescription" />
-		<property name="broadcastWatchTimes" column="broadcastWatchTimes" />
 		<property name="suspendMember" column="suspendMember" />
 	</class>
 </hibernate-mapping>

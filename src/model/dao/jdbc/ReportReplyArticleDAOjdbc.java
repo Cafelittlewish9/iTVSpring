@@ -113,7 +113,7 @@ public class ReportReplyArticleDAOjdbc implements ReportReplyArticleDAO {
 		List<ReportReplyArticleVO> list = dao.selectAll();
 		for (ReportReplyArticleVO dept : list) {
 			System.out.println(dept.getOrderId() + ",");
-			System.out.println(dept.getReportedReplyArticleId() + ",");
+			System.out.println(dept.getReplyArticle().getReplyArticleId() + ",");
 			System.out.println(dept.getReportTime() + ",");
 			System.out.println(dept.getReportReason());
 			System.out.println(dept.getReplyArticle().getMember().getMemberEmail());

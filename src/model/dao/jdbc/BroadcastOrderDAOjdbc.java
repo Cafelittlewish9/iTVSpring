@@ -160,9 +160,12 @@ public class BroadcastOrderDAOjdbc implements BroadcastOrderDAO {
 
 	public static void main(String[] args) {
 		// SelectAll
-		// BroadcastOrderDAO temp = new BroadcastOrderDAOjdbc();
-		// List<BroadcastOrderVO> list = temp.selectAll();
-		// System.out.println(list);
+		 BroadcastOrderDAO temp = new BroadcastOrderDAOjdbc();
+		 List<BroadcastOrderVO> list = temp.selectAll();
+		 for(BroadcastOrderVO bean : list) {
+			 System.out.println(list);
+			 System.out.println(bean.getMember().getMemberAccount());
+		 }
 
 		// Insert
 		// String memberAccount = "FUN";

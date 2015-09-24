@@ -102,7 +102,7 @@ public class ReportVideoDAOjdbc implements ReportVideoDAO {
 		List<ReportVideoVO> list = dao.selectAll();
 		for (ReportVideoVO dept : list) {
 			System.out.println(dept.getOrderId() + ",");
-			System.out.println(dept.getReportedVideoId() + ",");
+			System.out.println(dept.getVideo().getVideoId() + ",");
 			System.out.println(dept.getReportTime() + ",");
 			System.out.println(dept.getReportReason());
 			System.out.println(dept.getVideo().getMember().getMemberEmail());

@@ -115,6 +115,7 @@ public class FollowDAOjdbc implements FollowDAO {
 		for (FollowVO temp : follow.selectByMemberId(2)) {
 			System.out.println(temp);
 			System.out.println(temp.getMember().getMemberAccount());
+			System.out.println(temp.getMember().getMemberId());
 		}
 	}
 }
