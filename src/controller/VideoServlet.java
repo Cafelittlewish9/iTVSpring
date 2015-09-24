@@ -29,6 +29,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONValue;
 
 import model.service.VideoService;
+import model.vo.MemberVO;
 import model.vo.VideoVO;
 import util.ConvertType;
 
@@ -51,7 +52,7 @@ public class VideoServlet extends HttpServlet {
 		for (VideoVO row : result) {
 			Map map =new HashMap();
 			map.put("videoId",row.getVideoId());
-			map.put("memberId",row.getMemberId());
+			map.put("memberId",row.getMember().getMemberId());
 			map.put("videoClassName",row.getVideoClassName());
 			map.put("videoName",row.getVideoName());
 			map.put("videoTitle",row.getVideoTitle());
@@ -125,9 +126,13 @@ public class VideoServlet extends HttpServlet {
 			}
 		}
 		
+		
+		
 		//呼叫Model
+		MemberVO mvo=new MemberVO();
+		mvo.setMemberId(id);//真正畫面在運作時，session裡應該會有MemberVO，屆時再直接拿來使用，這裡new只是為了測試
 		VideoVO bean = new VideoVO();
-		bean.setMemberId(id);
+		bean.setMember(mvo);
 		bean.setVideoId(vid);
 		bean.setVideoClassName(videoClassName);
 		bean.setVideoTitle(videoTitle);
@@ -140,8 +145,6 @@ public class VideoServlet extends HttpServlet {
 		
 		//根據Model執行結果導向View
 		VideoService vs = new VideoService();
-
-		
 		
 		if(prodaction!=null && prodaction.equals("Select")) {
 			Collection<VideoVO> result = vs.hotVideo();
@@ -189,7 +192,7 @@ public class VideoServlet extends HttpServlet {
 			}
 			
 		}else if(prodaction!=null && prodaction.equals("searchMemberId")) {
-			Collection<VideoVO> res = vs.searchMemberId(bean.getMemberId());
+			Collection<VideoVO> res = vs.searchMemberId(id);
 			if(res==null) {
 				request.setAttribute("searchMemberId", "can't Find");
 			} else {

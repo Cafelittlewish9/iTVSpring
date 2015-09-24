@@ -55,7 +55,7 @@ width: 450px; margin:0px auto;padding:5px
       
       <div class="modal-body">
 
-			<form id="Login_form" method="post" action="">
+			<form id="Login_form" method="post" action="<c:url value='/login.do'/>">
 				<fieldset style="text-align:center">
 				
 				<div id="l_input1-1"  class="input-group">
@@ -65,16 +65,16 @@ width: 450px; margin:0px auto;padding:5px
 				
 				<div id="l_input2-1"  class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">密碼</span>
-					  <input id="Login_memberPassword" type="text" name="memberId" class="form-control" maxlength="6" placeholder="請輸入" aria-describedby="basic-addon1">
+					  <input id="Login_memberPassword" type="text" name="memberPassword" class="form-control" maxlength="20" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
 				
 				
-				<input value="Select" type="hidden" name="prodaction" class="form-control" aria-describedby="basic-addon1">
+				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1">
 						
 				</fieldset>
 			</form>
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-1">
-				<input style="width: 440px" id="l_submit2-1"  value="登入" class="btn btn-primary btn-small" type="submit">
+				<input style="width: 440px" id="l_submit2-1" name="operation" value="登入" class="btn btn-primary btn-small" type="submit">
 			</div>
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-2">
 				<a style="width: 440px" id="l_submit2-2" class="btn btn-primary btn-small" role="button"  href="GetPassword.jsp">忘記密碼</a>

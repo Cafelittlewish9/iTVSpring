@@ -81,32 +81,33 @@ public class Registry extends HttpServlet {
 			return ;
 		}else{
 //			呼叫service服務，將資料送去DB型轉已寫在model裡
-			boolean bean=ms.memberAccountHasBeanUsed(username);
-			if(operation!=null && operation.equals("註冊")&& bean){
+			boolean result=ms.memberAccountHasBeanUsed(username);
+			if(operation!=null && operation.equals("註冊")&& result==true){
 				errorMsg.add("帳號已存在，請再輸入其他帳號");	
 				System.out.println(errorMsg.get(0));
 			}else{
-//				try {				
-//					ms.registry1(bean);
-//					bean.setMemberAccount(username);
-//					bean.setMemberPassword(password.getBytes());
-//					bean.setMemberEmail(usermail);
-//					bean.setBroadcastWebsite(broadcastWebsite);
-//					if (nickname!=null){
-//						bean.setMemberNickname(nickname);
-//					}else{
-//						bean.setMemberNickname(null);
-//					}
-//					if (birthday!=""){
-//						bean.setMemberBirthday(ConvertType.convertToUtilDate(birthday));					
-//					}else{
-//						bean.setMemberBirthday(null);
-//					}
-//					ms.update(bean);
-//				} catch (Exception e) {
-//					errorMsg.add("儲存資料時發生錯誤，請檢查，例外="+e.getMessage());
-//					e.printStackTrace();
-//				}
+				try {				
+					MemberVO bean=new MemberVO();
+					ms.registry1(bean);
+					bean.setMemberAccount(username);
+					bean.setMemberPassword(password.getBytes());
+					bean.setMemberEmail(usermail);
+					bean.setBroadcastWebsite(broadcastWebsite);
+					if (nickname!=null){
+						bean.setMemberNickname(nickname);
+					}else{
+						bean.setMemberNickname(null);
+					}
+					if (birthday!=""){
+						bean.setMemberBirthday(ConvertType.convertToUtilDate(birthday));					
+					}else{
+						bean.setMemberBirthday(null);
+					}
+					ms.update(bean);
+				} catch (Exception e) {
+					errorMsg.add("儲存資料時發生錯誤，請檢查，例外="+e.getMessage());
+					e.printStackTrace();
+				}
 			}
 		}
 		

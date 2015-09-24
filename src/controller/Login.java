@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
 			errors.put("password", "請輸入密碼");
 		}
 		if (errors != null && !errors.isEmpty()) {
-			request.getRequestDispatcher("HomePageVersion3.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 			return;
 		}
 
@@ -61,11 +61,11 @@ public class Login extends HttpServlet {
 			response.sendRedirect("HomePageVersion3.jsp");
 			return;
 		} else if (operation != null && operation.equals("提取密碼")) {
-			request.getRequestDispatcher("LoginPage.html").forward(request, response);// 送去客服頁面
+			request.getRequestDispatcher("GetPassword.jsp").forward(request, response);// 送去客服頁面
 			return;
 		} else {
 			errors.put("password", "登入失敗，請再試一遍");// 放在session裡
-			request.getRequestDispatcher("HomePageVersion3.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 	}
 
