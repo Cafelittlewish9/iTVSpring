@@ -6,12 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+<!-- <script src="js/bootstrap.js"></script> -->
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
 <!-- <link rel="stylesheet" href="css/justified-nav.css"> -->
-<script src="js/bootstrap.file-input.js"></script>
-<script src="js/js.cookie.js"></script>
+<!-- <script src="js/bootstrap.file-input.js"></script> -->
+<!-- <script src="js/js.cookie.js"></script> -->
 
 <script src="js/Login.js"></script>
 <style>

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import model.dao.MemberDAO;
 import model.dao.jdbc.MemberDAOjdbc;
 import model.vo.MemberVO;
+import util.ConvertType;
 import util.ServicePasswordChange;
 
 //註冊後轉update頁面要由controller處理
@@ -50,7 +51,7 @@ public class MemberService {
 				if (!bean.isSuspendMember()) {
 					if (!bean.isSuspendMember()) {
 						if (this.comparePassword(password, bean.getMemberPassword())) {
-							member = bean;
+							member = ConvertType.setPhotoIntoMemberName(bean);
 						}
 					}
 				}
@@ -67,7 +68,7 @@ public class MemberService {
 			if (bean != null) {
 				if (!bean.isSuspendMember()) {
 					if (this.comparePassword(password, bean.getMemberPassword())) {
-						member = bean;
+						member = ConvertType.setPhotoIntoMemberName(bean);
 					}
 				}
 			}
@@ -124,7 +125,7 @@ public class MemberService {
 	// ↑是否是指連查詢個資都要輸入一次帳密？
 	public MemberVO searchByMemberAccount(String memberAccount) {
 		MemberVO bean = dao.findByMemberAccount(memberAccount);
-		return bean;
+		return ConvertType.setPhotoIntoMemberName(bean);
 	}
 
 	// 更改、測試完成
@@ -153,6 +154,14 @@ public class MemberService {
 		boolean result = false;
 		bean.setMemberPhoto(photo);
 		if (dao.update(bean) == 1) {
+			result = true;
+		}
+		return result;
+	}
+	
+	public boolean changePhoto(int memberId, byte[] photo) {
+		boolean result = false;
+		if (dao.updatePhoto(memberId, photo) == 1) {
 			result = true;
 		}
 		return result;
