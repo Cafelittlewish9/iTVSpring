@@ -121,6 +121,11 @@ $(function () {
 					  <span  class="input-group-addon" id="basic-addon1">生日</span>
 					  <input value="${param.memberBirthday}" id="memberBirthday" type="date" name="memberBirthday" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
 				</div>
+				<form enctype="multipart/form-data" method="post" action="<c:url value='/MemberServlet'/>">
+				<div id="l_input4"  class="input-group">
+					  <span  class="input-group-addon" id="basic-addon1">頭像</span>
+					  <input id="memberPhoto" type="file" name="memberPhoto" class="form-control" placeholder="" aria-describedby="basic-addon1">
+				</div>
 				
 				<div  class="input-group">
 					  <span  class="input-group-addon" id="basic-addon1">直播Server</span>
@@ -131,10 +136,7 @@ $(function () {
 			
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group1">
 				<input style="width: 440px" id="l_submit1"  value="註冊" name="operation" class="btn btn-primary btn-small" type="submit">
-<!-- 				<div id="l_input4"  class="input-group"> -->
-<!-- 					  <span  class="input-group-addon" id="basic-addon1">頭像</span> -->
-<!-- 					  <input id="memberPhoto" type="file" name="memberPhoto" class="form-control" placeholder="" aria-describedby="basic-addon1"> -->
-<!-- 				</div> -->			
+			
 			</div>
 			</fieldset>	
 			</form>					

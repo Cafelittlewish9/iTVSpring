@@ -94,7 +94,7 @@ public class Login extends HttpServlet {
 //				requestURI = (requestURI.length() == 0 ? request
 //						.getContextPath() : requestURI);
 				requestURI = (requestURI.length() == 0 ? request
-						.getContextPath() : path+"/HomePageVersion3.jsp");
+						.getContextPath() : path+"/PersonalPage.jsp");
 				response.sendRedirect(response.encodeRedirectURL(requestURI));
 				//少見的XX判斷式
 				return;

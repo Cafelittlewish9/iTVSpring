@@ -117,7 +117,7 @@ public class Registry extends HttpServlet {
 			return;
 		}else{
 			
-			response.sendRedirect(path+"/Setting.jsp");
+			response.sendRedirect(path+"/PersonalPage.jsp");
 			return;
 		}
 	}
