@@ -6,7 +6,6 @@ import java.util.Arrays;
 import model.dao.MemberDAO;
 import model.dao.jdbc.MemberDAOjdbc;
 import model.vo.MemberVO;
-import util.ConvertType;
 import util.ServicePasswordChange;
 
 //註冊後轉update頁面要由controller處理

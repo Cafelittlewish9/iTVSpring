@@ -96,7 +96,7 @@ public class Registry extends HttpServlet {
 					if (nickname!=null){
 						bean.setMemberNickname(nickname);
 					}else{
-						bean.setMemberNickname(null);
+						bean.setMemberNickname("");
 					}
 					if (birthday!=""){
 						bean.setMemberBirthday(ConvertType.convertToUtilDate(birthday));					

@@ -92,7 +92,7 @@ $(function(){
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:0px">
 								<div class="stream-title--image">
 			              
-					                <img src="${user.memberNickname}" />
+					                <img src="${user.memberName}" />
 					              
 					            </div >
 					            </a>
