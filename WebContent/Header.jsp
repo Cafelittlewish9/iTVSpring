@@ -6,7 +6,7 @@
 <!-- <head> -->
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-<!-- <script src="js/bootstrap.js"></script> -->
+<script src="js/bootstrap.js"></script>
 <!-- <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" /> -->
 <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/searchbar.css" /> -->
 
@@ -91,9 +91,7 @@ $(function(){
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:0px">
 								<div class="stream-title--image">
-			              
 					                <img src="${user.memberName}" />
-					              
 					            </div >
 					            </a>
 								<ul class="dropdown-menu" role="menu">
