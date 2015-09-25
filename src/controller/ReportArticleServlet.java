@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import model.service.MemberService;
 import model.service.ReportArticleService;
 import model.vo.ArticleVO;
@@ -110,6 +113,9 @@ public class ReportArticleServlet extends HttpServlet {
 		ReportArticleService reportArticleService = new ReportArticleService();
 		if(reportArticleService.reportArticleList()!=null){
 			Collection<ReportArticleVO> showReportArticle = reportArticleService.reportArticleList();
+			JSONObject obj = new JSONObject();
+			obj.put("list", showReportArticle);
+			response.getWriter().write(obj.toString());
 			if(showReportArticle!=null){
 				request.setAttribute("showReportArticle", showReportArticle);
 			}else{

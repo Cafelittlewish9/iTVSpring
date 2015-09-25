@@ -201,7 +201,6 @@ width: 450px; margin:0px auto;padding:5px
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
     
-<!--   這邊應該也要判斷吧，否則不管如何都會跳這個提示 -->
 
     <div class="modal-content">
       <div class="modal-header">

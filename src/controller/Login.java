@@ -20,7 +20,7 @@ import model.service.LoginService;
 import model.service.MemberService;
 import model.vo.LoginVO;
 import model.vo.MemberVO;
-
+//用loginFilter判斷suspend為true時阻止登入
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -88,15 +88,14 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		System.out.println();
+		System.out.println(path);
 		if (errorMsgMap.isEmpty()) {
 			if (requestURI != null) {
-//				requestURI = (requestURI.length() == 0 ? request
-//						.getContextPath() : requestURI);
 				requestURI = (requestURI.length() == 0 ? request
-						.getContextPath() : path+"/HomePageVersion3.jsp");
+						.getContextPath() : requestURI);
+//				requestURI = (requestURI.length() == 0 ? request
+//						.getContextPath() : path+"/HomePageVersion3.jsp");
 				response.sendRedirect(response.encodeRedirectURL(requestURI));
-				//少見的XX判斷式
 				return;
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request
@@ -108,7 +107,7 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-			
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
