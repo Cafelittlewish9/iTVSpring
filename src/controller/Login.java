@@ -21,7 +21,7 @@ import model.service.MemberService;
 import model.vo.LoginVO;
 import model.vo.MemberVO;
 
-@WebServlet("/login.do")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService ms;
@@ -94,7 +94,7 @@ public class Login extends HttpServlet {
 //				requestURI = (requestURI.length() == 0 ? request
 //						.getContextPath() : requestURI);
 				requestURI = (requestURI.length() == 0 ? request
-						.getContextPath() : path+"/PersonalPage.jsp");
+						.getContextPath() : path+"/HomePageVersion3.jsp");
 				response.sendRedirect(response.encodeRedirectURL(requestURI));
 				//少見的XX判斷式
 				return;

@@ -93,7 +93,7 @@ $(function () {
       
       <div class="modal-body">
 <!-- 		<div class="upload-form"> -->
-			<form id="SignUp_form" action="<c:url value='/registry.do'/>" method="post">
+			<form id="SignUp_form" action="<c:url value='/registry'/>" method="post">
 				<fieldset style="text-align:center">
 				
 				

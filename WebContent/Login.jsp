@@ -84,7 +84,7 @@ width: 450px; margin:0px auto;padding:5px
 			</div>
 			<div class="modal-body">
 						<div class="upload-form">
-				<form id="SignUp_form" action="<c:url value="registry.do" />" method="post">
+				<form id="SignUp_form">
 					<fieldset style="text-align: center">
 <!-- 						<div id="l_input1" class="input-group"> -->
 <!-- 							<span class="input-group-addon" id="basic-addon1">帳號</span>  -->
@@ -159,7 +159,7 @@ width: 450px; margin:0px auto;padding:5px
       
       <div class="modal-body">
 <!-- 		<div class="upload-form"> -->
-			<form id="Login_form" method="post" action="<c:url value="/loginAjaxs" />">
+			<form id="Login_form" method="post" action="<c:url value='/login' />">
 				<fieldset style="text-align:center">
 				
 				<div id="l_input1-1"  class="input-group">
@@ -176,7 +176,7 @@ width: 450px; margin:0px auto;padding:5px
 <!-- 				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1"> -->
 						
 				</fieldset>
-			</form>
+<!-- 			</form> -->
 <!-- 			<form > -->
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-1">
 				<input style="width: 440px" id="l_submit2-1" name="operation" value="登入" class="btn btn-primary btn-small" type="submit">
@@ -185,7 +185,7 @@ width: 450px; margin:0px auto;padding:5px
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-2">
 				<button style="width: 440px" id="l_submit2-2" name="operation" class="btn btn-primary btn-small" data-dismiss="modal" data-toggle="modal" type="button" data-target="#mypassword">忘記密碼</button>
 			</div>
-			
+			</form>
 <!-- 		</div> -->
       </div>
       	  <div class="modal-footer">
