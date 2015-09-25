@@ -73,9 +73,9 @@ public class ConvertType {
 		return result;
 	}
 
-	public static String convertToBase64(byte[] photo) {
+	public static String convertToBase64(byte[] photo, String type) {
 		String result = java.util.Base64.getEncoder().encodeToString(photo);
-		return "data:image/jpg;base64," + result;
+		return "data:image/" + type + ";base64," + result;
 	}
 
 	//
