@@ -126,7 +126,7 @@ $(function(){
 									  	設定
 									</button>
 									</li>
-									<li><a href="Logout.jsp?operation" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">登出</a></li>
+									<li><a href="Logout.jsp" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">登出</a></li>
 								</ul>
 							</li>
 						</ul>

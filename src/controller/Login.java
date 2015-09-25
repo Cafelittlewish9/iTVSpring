@@ -100,7 +100,7 @@ public class Login extends HttpServlet {
 				return;
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request
-						.getContextPath()));
+						.getContextPath())+"/HomePageVersion3.jsp");
 				return;
 			}
 		} else {

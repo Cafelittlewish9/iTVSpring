@@ -9,6 +9,7 @@ import org.hibernate.Session;
 
 import model.dao.MemberDAO;
 import model.vo.MemberVO;
+import util.ConvertType;
 import util.HibernateUtil;
 
 public class MemberDAOjdbc implements MemberDAO {
@@ -251,6 +252,7 @@ public class MemberDAOjdbc implements MemberDAO {
 		try {
 			session.beginTransaction();
 			bean = (MemberVO) session.get(MemberVO.class, memberId);
+			bean.setMemberName(ConvertType.convertToBase64(photo, "jpeg"));
 			bean.setMemberPhoto(photo);
 			session.getTransaction().commit();
 			result = 1;
