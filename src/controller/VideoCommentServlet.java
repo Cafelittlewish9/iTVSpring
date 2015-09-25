@@ -54,8 +54,22 @@ public class VideoCommentServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().write(jsonObj.toString());
 	}
-
-	// 尚未測試
+	/*public JSONArray convertToJson(Collection<VideoCommentsVO> result){
+		JSONArray list = new JSONArray(); //this is Json simple's JSONArray
+		for(VideoCommentsVO row : result){
+			Map showAllVideoComments = new HashMap();
+			showAllVideoComments.put("commentId", row.getCommentId());
+			showAllVideoComments.put("memberId", row.getMemberId());
+			showAllVideoComments.put("videoId", row.getVideoId());
+			showAllVideoComments.put("commentContent", row.getCommentContent());
+			showAllVideoComments.put("commentTime", row.getCommentTime()+"");
+			showAllVideoComments.put("memberAccount", row.getMember().getMemberAccount());
+			list.add(showAllVideoComments);
+		}
+    	return list;
+    }*/
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

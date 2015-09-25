@@ -115,8 +115,7 @@ public class Registry extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("SignUp.jsp");
 			rd.forward(request, response);
 			return;
-		}else{
-			
+		}else{			
 			response.sendRedirect(path+"/PersonalPage.jsp");
 			return;
 		}

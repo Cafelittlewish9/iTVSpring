@@ -6,7 +6,7 @@
 <!-- <head> -->
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-<script src="js/bootstrap.js"></script>
+<!-- <script src="js/bootstrap.js"></script> -->
 <!-- <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" /> -->
 <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/searchbar.css" /> -->
 
@@ -126,7 +126,7 @@ $(function(){
 									  	設定
 									</button>
 									</li>
-									<li><a href="Logout.jsp?operation" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">登出</a></li>
+									<li><a href="Logout.jsp" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">登出</a></li>
 								</ul>
 							</li>
 						</ul>
