@@ -125,7 +125,7 @@ public class MemberService {
 		MemberVO mvo = this.login1(username, password);
 		if (mvo.getMemberPhoto()!=null){
 			mvo.setMemberNickname(ConvertType.convertToBase64(mvo.getMemberPhoto()));
-		}		
+		}
 		return mvo;
 	}
 
