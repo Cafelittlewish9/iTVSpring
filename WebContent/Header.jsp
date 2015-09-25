@@ -96,7 +96,7 @@ $(function(){
 					            </a>
 								<ul class="dropdown-menu" role="menu">
 									<li>
-									<a href="PersonalPage.jsp" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">
+									<a href="PersonalPage" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">
 										個人頁面
 									</a>
 									</li>

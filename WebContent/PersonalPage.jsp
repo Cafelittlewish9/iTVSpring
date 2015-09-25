@@ -98,27 +98,27 @@
 		            
 		              <div class="placeholder-for-chat no-chat">
 		              
-		                <div class="friendslist">
-		                
+		                <div class="friendslist"><span>FollowList</span>
+		                <c:forEach var="follow" items="${fList}">
 			                <div class="friends">
-				                <img src="img/photo.png" />
+				                <img src="${follow.member.memberName}" />
 				            </div >
-				            <div style="height: 38px;"><h4> KKSS</h4></div>
-						     
-						     <div class="friends" >
-				                <img src="img/photo.png" />
-				            </div >
-				            <div style="height: 38px;"><h4> KKSS</h4></div>
+				            <div style="height: 38px;"><h4> ${follow.member.memberAccount}</h4></div>
+						</c:forEach>
+<!-- 						     <div class="friends" > -->
+<!-- 				                <img src="img/photo.png" /> -->
+<!-- 				            </div > -->
+<!-- 				            <div style="height: 38px;"><h4> KKSS</h4></div> -->
 				            
-				            <div class="friends">
-				                <img src="img/photo.png" />
-				            </div >
-				            <div style="height: 38px;"><h4> KKSS</h4></div>
+<!-- 				            <div class="friends"> -->
+<!-- 				                <img src="img/photo.png" /> -->
+<!-- 				            </div > -->
+<!-- 				            <div style="height: 38px;"><h4> KKSS</h4></div> -->
 				            
-				            <div class="friends">
-				                <img src="img/photo.png" />
-				            </div >
-				            <div style="height: 38px;"><h4>KKSS</h4></div>
+<!-- 				            <div class="friends"> -->
+<!-- 				                <img src="img/photo.png" /> -->
+<!-- 				            </div > -->
+<!-- 				            <div style="height: 38px;"><h4>KKSS</h4></div> -->
 		                  
 		                </div>
 		              </div>
