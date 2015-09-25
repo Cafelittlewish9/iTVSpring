@@ -48,7 +48,7 @@
 				</ul>
 				
 				<ul>
-					<a href="#"><span class="glyphicon glyphicon-cloud" > <span style="font-family:Microsoft JhengHei;">雲端硬碟</span></span></a>
+					<a href="#Cloud.jsp"><span class="glyphicon glyphicon-cloud" > <span style="font-family:Microsoft JhengHei;">雲端硬碟</span></span></a>
 				</ul>	
 				
 				<ul>

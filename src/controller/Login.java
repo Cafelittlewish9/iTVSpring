@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 		if (password == null || password.trim().length() == 0) {
 			errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
 		}
-				
+		
 		MemberVO bean = ms.login1(username, password);
 		LoginVO log=new LoginVO();
 		Cookie cookieUser = null;
@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 			cookiePassword = new Cookie("password", encodePassword);
 			cookiePassword.setMaxAge(30*60*60);
 			cookiePassword.setPath(request.getContextPath());
-			session.setAttribute("user",bean );			
+			session.setAttribute("user",bean);			
 		}else {
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
 			cookieUser = new Cookie("user", username);
@@ -88,7 +88,7 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		
+		System.out.println();
 		if (errorMsgMap.isEmpty()) {
 			if (requestURI != null) {
 //				requestURI = (requestURI.length() == 0 ? request

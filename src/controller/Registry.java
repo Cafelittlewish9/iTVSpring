@@ -39,7 +39,7 @@ public class Registry extends HttpServlet {
 		List<String> errorMsg = new ArrayList<String>();
 		request.setAttribute("ErrorMsgKey", errorMsg);// 要與前端共享的錯誤訊息
 		//接收資料
-		String username = request.getParameter("memberAccount").toLowerCase();
+		String username = request.getParameter("memberAccount");
 //		String userRegExp = "^[a-zA-Z0-9]{6,20}$";// 帳號正規式驗證
 		String password = request.getParameter("memberPassword");
 //		String pwdRegExp = "^[a-zA-Z0-9]{8,20}$";// 密碼正規式驗證
