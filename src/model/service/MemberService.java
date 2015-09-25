@@ -52,7 +52,7 @@ public class MemberService {
 					if (!bean.isSuspendMember()) {
 						if (this.comparePassword(password, bean.getMemberPassword())) {
 							if(bean.getMemberPhoto()!=null){
-								bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto()));
+								bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto(), "png"));
 							}
 							member = bean;
 						}
@@ -71,7 +71,7 @@ public class MemberService {
 			if (bean != null) {
 				if (!bean.isSuspendMember()) {
 					if (this.comparePassword(password, bean.getMemberPassword())) {
-						bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto()));
+						bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto(), "png"));
 						member = bean;
 					}
 				}
@@ -123,16 +123,13 @@ public class MemberService {
 	// 會員查詢個資
 	public MemberVO showMemberInfo(String username, String password) {
 		MemberVO mvo = this.login1(username, password);
-		if (mvo.getMemberPhoto()!=null){
-			mvo.setMemberNickname(ConvertType.convertToBase64(mvo.getMemberPhoto()));
-		}
 		return mvo;
 	}
 
 	// ↑是否是指連查詢個資都要輸入一次帳密？
 	public MemberVO searchByMemberAccount(String memberAccount) {
 		MemberVO bean = dao.findByMemberAccount(memberAccount);
-		bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto()));
+		bean.setMemberNickname(ConvertType.convertToBase64(bean.getMemberPhoto(), "png"));
 		return bean;
 	}
 

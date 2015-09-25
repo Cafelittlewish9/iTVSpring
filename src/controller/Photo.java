@@ -47,10 +47,12 @@ public class Photo extends HttpServlet {
 		byte[] buffer = new byte[in.available()];
 		int length = -1;
 		while ((length = in.read(buffer)) != -1) {
-			out.write(buffer, 0, length);
-			int i = 1;
-			System.out.println(i);
-			i += 1;
+//			out.write(buffer, 0, length);
+//			int i = 1;
+			System.out.println(buffer);
+			String temp = ConvertType.convertToBase64(buffer, "png");
+			System.out.println(temp);
+//			i += 1;
 		}
 		out.close();
 		in.close();
