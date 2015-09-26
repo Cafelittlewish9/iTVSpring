@@ -8,6 +8,8 @@ public interface VideoCommentsDAO {
 
 	public List<VideoCommentsVO> selectAll();
 	
+	List<VideoCommentsVO> selectAllASC();
+	
 	public List<VideoCommentsVO> selectByVideoId(int videoId);
 
 	public int insert(VideoCommentsVO videoComments);

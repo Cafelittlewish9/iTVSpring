@@ -20,7 +20,7 @@ import model.service.MemberService;
 import model.vo.MemberVO;
 import util.ConvertType;
 
-@WebServlet("/registry.do")
+@WebServlet("/registry")
 public class Registry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService ms;
@@ -39,7 +39,7 @@ public class Registry extends HttpServlet {
 		List<String> errorMsg = new ArrayList<String>();
 		request.setAttribute("ErrorMsgKey", errorMsg);// 要與前端共享的錯誤訊息
 		//接收資料
-		String username = request.getParameter("memberAccount").toLowerCase();
+		String username = request.getParameter("memberAccount");
 //		String userRegExp = "^[a-zA-Z0-9]{6,20}$";// 帳號正規式驗證
 		String password = request.getParameter("memberPassword");
 //		String pwdRegExp = "^[a-zA-Z0-9]{8,20}$";// 密碼正規式驗證
@@ -96,7 +96,7 @@ public class Registry extends HttpServlet {
 					if (nickname!=null){
 						bean.setMemberNickname(nickname);
 					}else{
-						bean.setMemberNickname(null);
+						bean.setMemberNickname("");
 					}
 					if (birthday!=""){
 						bean.setMemberBirthday(ConvertType.convertToUtilDate(birthday));					
@@ -115,9 +115,8 @@ public class Registry extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("SignUp.jsp");
 			rd.forward(request, response);
 			return;
-		}else{
-			
-			response.sendRedirect(path+"/Setting.jsp");
+		}else{			
+			response.sendRedirect(path+"/PersonalPage.jsp");
 			return;
 		}
 	}

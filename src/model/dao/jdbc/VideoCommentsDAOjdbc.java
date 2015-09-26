@@ -54,6 +54,25 @@ public class VideoCommentsDAOjdbc implements VideoCommentsDAO {
 		return list;
 	}
 
+//	private static final String SELECT_ALL_ASC = "SELECT vc.commentId, vc.memberId, vc.videoId, vc.commentContent, vc.commentTime, m.memberAccount FROM videoComments vc Join member m ON vc.memberId = m.memberId ORDER BY commentTime ASC";
+
+	@Override
+	public List<VideoCommentsVO> selectAllASC() {//未改完，只是想讓系列的service跟servlet動起來
+		List<VideoCommentsVO> list = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery("from VideoCommentsVO ORDER BY commentTime ASC");
+			list = query.list();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		}
+		return list;			
+	}
+	
+	
 //	private static final String SELECT_BY_VIDEOID = "SELECT vc.commentId, vc.memberId, vc.videoId, vc.commentContent, vc.commentTime, m.memberAccount, m.memberPhoto FROM videoComments vc Join member m ON vc.memberId = m.memberId where videoId = ?";
 
 	@Override

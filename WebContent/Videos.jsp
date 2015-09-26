@@ -93,13 +93,18 @@
 							            <button type="button" value="Interest" id="browse_type_Interest" class="browse-main-filters--button js-browse-product-type ">趣味</button>
 							            <button type="button" value="Other" id="browse_type_Other" class="browse-main-filters--button js-browse-product-type ">其他</button>
 							          </div>
-									
-									<div id="videos_div1" >
-									
+				
+									<div id="videos_div1" style="width: 950px">
+										<c:forEach var="list" items="${videolist}">
+											<div class='service'>
+												<a href='PlayVideo.jsp?filename=${list.videoName}'> <img src='../img/${list.videoName}.jpg' width='200px' /></a><br> 
+												<a href='PlayVideo.jsp?filename=${list.videoName}'> <span class='font-right'> <div style='width: 200px; display: inline-block' class='font-right'>${list.videoTitle}</div></span></a><br> 
+												<span class='font-right'><div style='width: 200px; display: inline-block' class='font-right'><p>${list.videoDescription}</p></div></span></a><br> 
+												<span id='v_watchtimes'>${list.videoWatchTimes} views</span><br>
+											</div>
+										</c:forEach>
 									</div>
-						
-						
-						</div>
+					</div>
 					</div>
 				</div>
 			</div>

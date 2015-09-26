@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.lang.*"%>
-
+    pageEncoding="UTF-8" session="true" import="java.lang.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Setting Button的形狀 -->
 <link rel="stylesheet" href="css/Setting.css">
  
@@ -29,7 +29,7 @@
 			
 			<div class="modal-body">
 				<fieldset style="text-align: center">
-					<form class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form" action="<c:url value='/updateInfo'/>" method="POST">
 					
 						<div class="form-group">
 							<label for="account" class="col-sm-3 control-label">帳號</label>

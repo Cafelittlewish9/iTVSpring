@@ -20,8 +20,8 @@ import model.service.LoginService;
 import model.service.MemberService;
 import model.vo.LoginVO;
 import model.vo.MemberVO;
-
-@WebServlet("/login.do")
+//用loginFilter判斷suspend為true時阻止登入
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService ms;
@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 		if (password == null || password.trim().length() == 0) {
 			errorMsgMap.put("PasswordEmptyError", "密碼欄必須輸入");
 		}
-				
+		
 		MemberVO bean = ms.login1(username, password);
 		LoginVO log=new LoginVO();
 		Cookie cookieUser = null;
@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 			cookiePassword = new Cookie("password", encodePassword);
 			cookiePassword.setMaxAge(30*60*60);
 			cookiePassword.setPath(request.getContextPath());
-			session.setAttribute("user",bean );			
+			session.setAttribute("user",bean);			
 		}else {
 			errorMsgMap.put("LoginError", "該帳號不存在或密碼錯誤");
 			cookieUser = new Cookie("user", username);
@@ -88,19 +88,18 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		
+		System.out.println(path);
 		if (errorMsgMap.isEmpty()) {
 			if (requestURI != null) {
-//				requestURI = (requestURI.length() == 0 ? request
-//						.getContextPath() : requestURI);
 				requestURI = (requestURI.length() == 0 ? request
-						.getContextPath() : path+"/HomePageVersion3.jsp");
+						.getContextPath() : requestURI);
+//				requestURI = (requestURI.length() == 0 ? request
+//						.getContextPath() : path+"/HomePageVersion3.jsp");
 				response.sendRedirect(response.encodeRedirectURL(requestURI));
-				//少見的XX判斷式
 				return;
 			} else {
 				response.sendRedirect(response.encodeRedirectURL(request
-						.getContextPath()));
+						.getContextPath())+"/HomePageVersion3.jsp");
 				return;
 			}
 		} else {
@@ -108,7 +107,7 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-			
+
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

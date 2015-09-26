@@ -120,24 +120,24 @@ $(function () {
         	}
         	return;
     	}else{
-    		 $.get('MemberServlet',$('#Login_form').serialize(),function(data){
-       		   console.log(data);
-       	   		});
+//    		 $.get('MemberServlet',$('#Login_form').serialize(),function(data){
+//       		   console.log(data);
+//       	   		});
     		 
     		 $('#signupfinished h4').text("登入成功");
     		//關閉列表 顯示成功畫面
     		setTimeout(function() {
 				$('#Login').modal('hide');
               	$('#signupfinished').modal('show');
-              }, 500);
+              }, 1500);
     		
           	//一秒半後關閉成功畫面
          	 setTimeout(function() {
               	$('#signupfinished').modal('hide');
-              }, 2000);
+              }, 3000);
          	setTimeout(function() {
        		 location.reload();
-            }, 3000);
+            }, 4000);
     	}
     	
     });

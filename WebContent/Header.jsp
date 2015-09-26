@@ -91,14 +91,12 @@ $(function(){
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="padding:0px">
 								<div class="stream-title--image">
-			              
-					                <img src="${user.memberNickname}" />
-					              
+					                <img src="${user.memberName}" />
 					            </div >
 					            </a>
 								<ul class="dropdown-menu" role="menu">
 									<li>
-									<a href="PersonalPage.jsp" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">
+									<a href="PersonalPage" style="width: 169px;height: 34px;text-align: center;line-height: 34px;">
 										個人頁面
 									</a>
 									</li>

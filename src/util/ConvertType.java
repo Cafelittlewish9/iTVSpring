@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
 
+import model.vo.MemberVO;
+
 public class ConvertType {
 
 	public static int convertToInt(String whichYouWantToConvert) {
@@ -73,9 +75,19 @@ public class ConvertType {
 		return result;
 	}
 
-	public static String convertToBase64(byte[] photo) {
-		String result = java.util.Base64.getEncoder().encodeToString(photo);
-		return "data:image/jpg;base64," + result;
+	public static String convertToBase64(byte[] photo, String type) {
+		if (photo != null && photo.length != 0) {
+			String result = java.util.Base64.getEncoder().encodeToString(photo);
+			return "data:image/" + type + ";base64," + result;
+		} else {
+			return "img/default.png";
+		}
+	}
+
+	public static MemberVO setPhotoIntoMemberName(MemberVO bean) {
+		String base64Photo = ConvertType.convertToBase64(bean.getMemberPhoto(), "jpeg");
+		bean.setMemberName(base64Photo);
+		return bean;
 	}
 
 	//

@@ -15,8 +15,8 @@ import javax.servlet.http.Part;
 import model.service.MemberService;
 import util.ConvertType;
 
-@WebServlet(name = "Photo", urlPatterns = { "/upload.do" })
-public class Photo extends HttpServlet {
+@WebServlet(name = "CloudServlet", urlPatterns = { "/cloud" })
+public class CloudServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private MemberService ms;

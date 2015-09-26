@@ -64,5 +64,5 @@ public class VideoCommentsVO implements Serializable {
 
 	public void setMember(MemberVO member) {
 		this.member = member;
-	}
+	}	
 }

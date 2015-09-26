@@ -56,7 +56,7 @@ width: 450px; margin:0px auto;padding:5px
       
       <div class="modal-body">
 
-			<form id="Login_form" method="post" action="<c:url value='/login.do'/>">
+			<form id="Login_form" method="post" action="<c:url value='/login'/>">
 				<fieldset style="text-align:center">
 				
 				<div id="l_input1-1"  class="input-group">

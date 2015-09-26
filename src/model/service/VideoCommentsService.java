@@ -13,6 +13,10 @@ public class VideoCommentsService {
 		this.dao = new VideoCommentsDAOjdbc();
 	}
 	
+	public List<VideoCommentsVO> selectAllCommentsASC(){
+		return dao.selectAllASC();
+	}
+	
 	public List<VideoCommentsVO> selectAllComments(){
 		return dao.selectAll();
 	}
@@ -53,12 +57,12 @@ public class VideoCommentsService {
 	
 	
 	public static void main(String[] args){
-		VideoCommentsService service = new VideoCommentsService();
+//		VideoCommentsService service = new VideoCommentsService();
 //		boolean bool = service.insertVideoComments(1, 4, "安安");
 //		boolean bool = service.updateVideoComments("修改安安", java.sql.Timestamp.valueOf("1911-01-01 10:10:10.000"), 17);
-		boolean bool = service.deleteVideoComments(17);
-		
-		System.out.println(bool);
+//		boolean bool = service.deleteVideoComments(17);
+//		
+//		System.out.println(bool);
 		
 	}
 	

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
-<!-- <html> -->
-<!-- <head> -->
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<!-- <title>Login</title> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Login</title>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 <!-- <script src="js/bootstrap.js"></script> -->
 <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
@@ -62,13 +62,13 @@ width: 450px; margin:0px auto;padding:5px
 // 	  });
 // });
 </script>
-<!-- </head> -->
-<!-- <body> -->
+</head>
+<body>
 <!-- Button trigger modal -->
-<!-- <center> -->
+<%-- <center> --%>
 <!-- <button type="button" class="btn btn-primary btn-lg" id="signup" data-toggle="modal" data-target="#SignUp">註冊</button> -->
 <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Login">登入</button> -->
-<!-- </center> -->
+<%-- </center> --%>
 
 <!-- SignUp Modal -->
 <div class="modal fade" id="SignUp" tabindex="-1" role="dialog"
@@ -83,59 +83,61 @@ width: 450px; margin:0px auto;padding:5px
 				<h4 style="text-align: center" class="modal-title" id="myModalLabel">註冊</h4>
 			</div>
 			<div class="modal-body">
-				<!-- 		<div class="upload-form"> -->
-				<form id="SignUp_form" action="<c:url value="registry.do" />" method="post">
+						<div class="upload-form">
+				<form id="SignUp_form">
 					<fieldset style="text-align: center">
-						<div id="l_input1" class="input-group">
-							<span class="input-group-addon" id="basic-addon1">帳號</span> 
-							<input id="memberAccount" type="text" name="memberAccount"
-								class="form-control" placeholder="請輸入"
-								aria-describedby="basic-addon1">
-						</div>
-						<div id="l_input2" class="input-group">
-							<span class="input-group-addon" id="basic-addon1">密碼</span>
-							<input id="memberPassword" type="text" name="memberPassword"
-								class="form-control" maxlength="20" placeholder="請輸入"
-								aria-describedby="basic-addon1">
-						</div>
-						<div id="l_input3" class="input-group">
-							<span class="input-group-addon" id="basic-addon1">E-mail</span> 
-							<input id="memberEmail" type="email" name="memberEmail"
-								class="form-control" maxlength="40" placeholder="請輸入"
-								aria-describedby="basic-addon1">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">暱稱</span>
-							<input id="memberNickname" type="text" name="memberNickname"
-								class="form-control" maxlength="40" placeholder="請輸入"
-								aria-describedby="basic-addon1">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">生日</span>
-							<input id="memberBirthday" type="date" name="memberBirthday"
-								class="form-control" placeholder="請輸入"
-								aria-describedby="basic-addon1">
-						</div>
+
+<!-- 						<div id="l_input1" class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">帳號</span>  -->
+<!-- 							<input id="memberAccount" type="text" name="memberAccount" -->
+<!-- 								class="form-control" placeholder="請輸入" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div> -->
+<!-- 						<div id="l_input2" class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">密碼</span> -->
+<!-- 							<input id="memberPassword" type="text" name="memberPassword" -->
+<!-- 								class="form-control" maxlength="20" placeholder="請輸入" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div> -->
+<!-- 						<div id="l_input3" class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">E-mail</span>  -->
+<!-- 							<input id="memberEmail" type="email" name="memberEmail" -->
+<!-- 								class="form-control" maxlength="40" placeholder="請輸入" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div> -->
+<!-- 						<div class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">暱稱</span> -->
+<!-- 							<input id="memberNickname" type="text" name="memberNickname" -->
+<!-- 								class="form-control" maxlength="40" placeholder="請輸入" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div> -->
+<!-- 						<div class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">生日</span> -->
+<!-- 							<input id="memberBirthday" type="date" name="memberBirthday" -->
+<!-- 								class="form-control" placeholder="請輸入" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div> -->
 <!-- 						<div class="input-group"> -->
 <!-- 							<span class="input-group-addon" id="basic-addon1">直播Server</span> -->
 <!-- 							<input id="broadcastWebsite" type="text" name="broadcastWebsite" -->
 <!-- 								class="form-control" placeholder="" -->
 <!-- 								aria-describedby="basic-addon1" readonly> -->
 <!-- 						</div> -->
-						<div id="l_input4" class="input-group">
-							<span class="input-group-addon" id="basic-addon1">頭像</span>
-							<input id="memberPhoto" type="file" name="memberPhoto"
-								class="form-control" placeholder=""
-								aria-describedby="basic-addon1">
-						</div>						
+<!-- 						<div id="l_input4" class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">頭像</span> -->
+<!-- 							<input id="memberPhoto" type="file" name="memberPhoto" -->
+<!-- 								class="form-control" placeholder="" -->
+<!-- 								aria-describedby="basic-addon1"> -->
+<!-- 						</div>						 -->
+
 <!-- 						<input value="Insert" type="hidden" name="production" -->
 <!-- 							class="form-control" aria-describedby="basic-addon1"> -->
 					
-					<div style="width: 450px; margin: 0px auto; padding: 5px"
-						class="input-group1">
-						<input style="width: 440px" id="l_submit1" name="operation"
-							value="註冊  " class="btn btn-primary btn-small" type="submit">
-					</div>
+<!-- 					<div style="width: 450px; margin: 0px auto; padding: 5px" -->
+<!-- 						class="input-group1"> -->
+<!-- 						<input style="width: 440px" id="l_submit1" name="operation" -->
+<!-- 							value="註冊  " class="btn btn-primary btn-small" type="submit"> -->
+<!-- 					</div> -->
 					</fieldset>
 				</form>
 			</div>
@@ -145,7 +147,7 @@ width: 450px; margin:0px auto;padding:5px
 		</div>
 	</div>
 </div>
-
+</div>
 
 <!-- Login Modal -->
 <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
@@ -159,7 +161,7 @@ width: 450px; margin:0px auto;padding:5px
       
       <div class="modal-body">
 <!-- 		<div class="upload-form"> -->
-			<form id="Login_form" method="post" action="<c:url value="/login.do" />">
+			<form id="Login_form" method="post" action="<c:url value='/login' />">
 				<fieldset style="text-align:center">
 				
 				<div id="l_input1-1"  class="input-group">
@@ -173,7 +175,7 @@ width: 450px; margin:0px auto;padding:5px
 				</div>
 				
 				
-<!-- 				<input value="Select" type="hidden" name="prodaction" class="form-control" aria-describedby="basic-addon1"> -->
+<!-- 				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1"> -->
 						
 				</fieldset>
 <!-- 			</form> -->
@@ -181,11 +183,11 @@ width: 450px; margin:0px auto;padding:5px
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-1">
 				<input style="width: 440px" id="l_submit2-1" name="operation" value="登入" class="btn btn-primary btn-small" type="submit">
 			</div>
-			</form>
+<!-- 			</form> -->
 			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-2">
 				<button style="width: 440px" id="l_submit2-2" name="operation" class="btn btn-primary btn-small" data-dismiss="modal" data-toggle="modal" type="button" data-target="#mypassword">忘記密碼</button>
 			</div>
-			
+			</form>
 <!-- 		</div> -->
       </div>
       	  <div class="modal-footer">
@@ -201,7 +203,6 @@ width: 450px; margin:0px auto;padding:5px
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
     
-<!--   這邊應該也要判斷吧，否則不管如何都會跳這個提示 -->
 
     <div class="modal-content">
       <div class="modal-header">
@@ -257,3 +258,6 @@ width: 450px; margin:0px auto;padding:5px
     </div>
   </div>
 </div>
+
+</body>
+</html>
