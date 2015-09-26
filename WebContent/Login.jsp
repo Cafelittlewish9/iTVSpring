@@ -30,37 +30,37 @@ width: 450px; margin:0px auto;padding:5px
 
 </style>
 <script>
-$(function () {
-	<%
-	int i = 0; 
-	int j = 0;
-	String a = null;
-	int num1[] = {1,2,3,4,5,6,7,8,9,0}; 
-	char ch1[] = {'A','B','C','D','E','F','G','H','I','J'}; 
-	char ch2[] = {'K','L','M','N','O','P','Q','R','S','T'}; 
-	char ch3[] = {'U','V','W','X','Y','Z','A','B','C','D'}; 
-	int num2[] = {1,2,3,4,5,6,7,8,9,0};
-	char ch4[] = {'K','L','M','N','O','P','Q','R','S','T'};
-	%>
-	<% for(i = 0; i < 2; i++) {%>
-	<% 
-	int randNumber1 = (int)(Math.random()*(10)); 
-	int randNumber2 = (int)(Math.random()*(10)); 
-	int randNumber3 = (int)(Math.random()*(10)); 
-	int randNumber4 = (int)(Math.random()*(10));
-	int randNumber5 = (int)(Math.random()*(10));
-	int randNumber6 = (int)(Math.random()*(10));
-	%>
-	<% a = num1[randNumber1]+""+ch1[randNumber2]+ch2[randNumber3]+ch3[randNumber4]+num2[randNumber5]+ch4[randNumber6];%>
+// $(function () {
+<%-- 	<% --%>
+// 	int i = 0; 
+// 	int j = 0;
+// 	String a = null;
+// 	int num1[] = {1,2,3,4,5,6,7,8,9,0}; 
+// 	char ch1[] = {'A','B','C','D','E','F','G','H','I','J'}; 
+// 	char ch2[] = {'K','L','M','N','O','P','Q','R','S','T'}; 
+// 	char ch3[] = {'U','V','W','X','Y','Z','A','B','C','D'}; 
+// 	int num2[] = {1,2,3,4,5,6,7,8,9,0};
+// 	char ch4[] = {'K','L','M','N','O','P','Q','R','S','T'};
+<%-- 	%> --%>
+<%-- 	<% for(i = 0; i < 2; i++) {%> --%>
+<%-- 	<%  --%>
+// 	int randNumber1 = (int)(Math.random()*(10)); 
+// 	int randNumber2 = (int)(Math.random()*(10)); 
+// 	int randNumber3 = (int)(Math.random()*(10)); 
+// 	int randNumber4 = (int)(Math.random()*(10));
+// 	int randNumber5 = (int)(Math.random()*(10));
+// 	int randNumber6 = (int)(Math.random()*(10));
+<%-- 	%> --%>
+<%-- 	<% a = num1[randNumber1]+""+ch1[randNumber2]+ch2[randNumber3]+ch3[randNumber4]+num2[randNumber5]+ch4[randNumber6];%> --%>
 		
-	<% }%>
+<%-- 	<% }%> --%>
 	
-	$('#signup').on('click', function() {
-		var server = "rtmp://itvvm.cloudapp.net/live/";
-	    $('#broadcastWebsite').val(server+"<%=a%>");
+// 	$('#signup').on('click', function() {
+// 		var server = "rtmp://itvvm.cloudapp.net/live/";
+<%-- 	    $('#broadcastWebsite').val(server+"<%=a%>"); --%>
 	    
-	  });
-});
+// 	  });
+// });
 </script>
 <!-- </head> -->
 <!-- <body> -->
@@ -116,12 +116,12 @@ $(function () {
 								class="form-control" placeholder="請輸入"
 								aria-describedby="basic-addon1">
 						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">直播Server</span>
-							<input id="broadcastWebsite" type="text" name="broadcastWebsite"
-								class="form-control" placeholder=""
-								aria-describedby="basic-addon1" readonly>
-						</div>
+<!-- 						<div class="input-group"> -->
+<!-- 							<span class="input-group-addon" id="basic-addon1">直播Server</span> -->
+<!-- 							<input id="broadcastWebsite" type="text" name="broadcastWebsite" -->
+<!-- 								class="form-control" placeholder="" -->
+<!-- 								aria-describedby="basic-addon1" readonly> -->
+<!-- 						</div> -->
 						<div id="l_input4" class="input-group">
 							<span class="input-group-addon" id="basic-addon1">頭像</span>
 							<input id="memberPhoto" type="file" name="memberPhoto"
