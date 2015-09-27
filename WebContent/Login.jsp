@@ -86,6 +86,7 @@ width: 450px; margin:0px auto;padding:5px
 						<div class="upload-form">
 				<form id="SignUp_form">
 					<fieldset style="text-align: center">
+
 <!-- 						<div id="l_input1" class="input-group"> -->
 <!-- 							<span class="input-group-addon" id="basic-addon1">帳號</span>  -->
 <!-- 							<input id="memberAccount" type="text" name="memberAccount" -->
@@ -128,6 +129,7 @@ width: 450px; margin:0px auto;padding:5px
 <!-- 								class="form-control" placeholder="" -->
 <!-- 								aria-describedby="basic-addon1"> -->
 <!-- 						</div>						 -->
+
 <!-- 						<input value="Insert" type="hidden" name="production" -->
 <!-- 							class="form-control" aria-describedby="basic-addon1"> -->
 					
