@@ -21,6 +21,7 @@ import org.json.simple.JSONValue;
 import model.service.BroadcastOrderService;
 import model.service.MemberService;
 import model.vo.BroadcastOrderVO;
+import model.vo.MemberVO;
 
 /**
  * Servlet implementation class BroadcastOrderServlet
@@ -41,7 +42,8 @@ public class BroadcastOrderServlet extends HttpServlet {
 		
 		String Website = "http://itvvm.cloudapp.net/ITV/LiveShow?memberAccount=";
 		
-		String memberAccount = request.getParameter("memberAccount");
+		String memberId = request.getParameter("memberId");
+//		其實應該從session裡的MemberVO抓memberId
 		String broadcastSite = request.getParameter("broadcastSite");
 		String broadcastTitle = request.getParameter("broadcastTitle");
 		String Time = request.getParameter("broadcastTime");
@@ -70,16 +72,19 @@ public class BroadcastOrderServlet extends HttpServlet {
 		
 		if(prodaction!=null) {
 			if(prodaction.equals("Insert")) {
-				if(memberAccount==null || memberAccount.length()==0) {
-					errors.put("memberAccount", "Please Put Your Account to Create a LiveShow");
+				if(memberId==null ) {
+					errors.put("memberAccount", "請輸入您的帳號以開啟實況");
 				}
-			}else if (prodaction.equals("Update")||prodaction.equals("delete")){
-				//還沒寫完
+			}else if (prodaction.equals("Update")){
+				errors.put("memberAccount", "請輸入您的帳號以開啟實況");
+			}else if(prodaction.equals("delete")){
+				errors.put("memberAccount", "請輸入您的帳號以開啟實況");
 			}
 		}	
 		
-		
 		//呼叫Model
+				MemberVO mvo=new MemberVO();
+				String memberAccount=mvo.getMemberAccount();
 				BroadcastOrderVO bean = new BroadcastOrderVO();
 				bean.setMember(mService.searchByMemberAccount(memberAccount));
 				bean.setBroadcastSite(broadcastSite);
@@ -104,7 +109,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 						
 						JSONArray list = new JSONArray();
 							Map map =new HashMap();
-							map.put("memberAccount",result.getMember().getMemberAccount());
+							map.put("memberId",result.getMember().getMemberId());
 							map.put("broadcastSite",result.getBroadcastSite());
 							map.put("broadcastTitle",result.getBroadcastTitle());
 							map.put("broadcastTime",result.getBroadcastTime()+"");
@@ -122,7 +127,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 				}else if(prodaction!=null && prodaction.equals("Update")) {
 					boolean result = bs.changeTitle(bean);
 					if(result==false) {
-						errors.put("action", "Update fail");
+						errors.put("action", "修改失敗");
 					} else {
 						request.setAttribute("update", result);
 					}
@@ -143,7 +148,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 					JSONArray list = new JSONArray();
 					
 						Map map =new HashMap();
-						map.put("memberAccount",res.getMember().getMemberAccount());
+						map.put("memberId",res.getMember().getMemberId());
 						map.put("broadcastSite",res.getBroadcastSite());
 						map.put("broadcastTitle",res.getBroadcastTitle());
 						map.put("broadcastTime",res.getBroadcastTime()+"");
@@ -164,7 +169,7 @@ public class BroadcastOrderServlet extends HttpServlet {
 					JSONArray list = new JSONArray();
 					for (BroadcastOrderVO row : res) {
 						Map map =new HashMap();
-						map.put("memberAccount",row.getMember().getMemberAccount());
+						map.put("memberId",row.getMember().getMemberId());
 						map.put("broadcastSite",row.getBroadcastSite());
 						map.put("broadcastTitle",row.getBroadcastTitle());
 						map.put("broadcastTime",row.getBroadcastTime()+"");

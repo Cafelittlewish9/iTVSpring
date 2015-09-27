@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import model.service.ShowService;
 import model.vo.MemberVO;
 import model.vo.ShowVO;
-
+//貌似是cafelittlewish9寫的，且有一種寫一半的感覺
 @WebServlet("/show")
 public class Show extends HttpServlet {
 	private ShowService service;

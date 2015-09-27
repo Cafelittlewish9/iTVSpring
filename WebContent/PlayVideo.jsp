@@ -81,26 +81,33 @@
 	  
 //		追加影片
 	  $('.addvideo').click(function(){
-		  $.ajax({
-			  url:'ShowServlet',
-			  type:'get',
-			  data:{"memberId":'${user.memberId}',
-				  	"website":'${param.filename}',
-				  	'prodaction':'Insert'},
-			  dataType:"json",
-			  success:function(data){
-					  $('#addvideoModal').modal('show');
-	              		//一秒半後關閉成功畫面
-	                	 setTimeout(function() {
-	                     	$('#addvideoModal').modal('hide');
-	                     }, 2000);
-				  $.each(data,function(i,v){
-					  console.log(v.website);
-				  });
-			  }
-		  })
+		  if ('$(user.memberId)'==""){
+			  $('#Login').modal('show');
+			  return;
+		  }else{
+			  $.ajax({
+				  url:'ShowServlet',
+				  type:'get',
+				  data:{"memberId":'${user.memberId}',
+					  	"website":'${param.filename}',
+					  	'prodaction':'Insert'},
+				  dataType:"json",
+				  success:function(data){
+						  $('#addvideoModal').modal('show');//96、97不一樣
+		              		//一秒半後關閉成功畫面
+		                	 setTimeout(function() {
+		                     	$('#addvideoModal').modal('hide');
+		                     }, 2000);
+					  $.each(data,function(i,v){
+						  console.log(v.website);
+					  });
+				  }
+			  })
+		  }		  
 		});
-	  
+
+
+
 // 		影片回覆
 	  $('#comment_submit').click(function(){
 		  $.ajax({
@@ -375,23 +382,22 @@
 
 <!-- add成功Modal -->
 
-<div id="addvideoModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
+<!-- <div id="addvideoModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static"> -->
+<!--   <div class="modal-dialog modal-sm"> -->
+<!--     <div class="modal-content"> -->
     
   
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">追加影片成功！</h4>
-      </div>
-    </div><!-- /.modal-content -->
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<!--         <h4 class="modal-title">追加影片成功！</h4> -->
+<!--       </div> -->
+<!--     </div>/.modal-content -->
     
     
-    </div>
-  </div>
-</div>
-
-<jsp:include page="/Footer.jsp" />
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+	<jsp:include page="/Footer.jsp" />
 </body>
 </html>

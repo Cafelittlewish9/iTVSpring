@@ -16,6 +16,7 @@ public class GC {
 	public static final String DATASOURCE = "java:comp/env/jdbc/iTV";
 
 	public static void main(String[] args) {
+		//這裡應該只是讓一開始倒入的前四筆假資料有會員頭像
 		MemberService service = new MemberService();
 		File[] file = { new File("C:\\iTV\\img\\pikachu.jpeg"), new File("C:\\iTV\\img\\charmander.jpg"),
 				new File("C:\\iTV\\img\\squirtle.jpg"), new File("C:\\iTV\\img\\bulbasaur.jpg") };

@@ -17,7 +17,7 @@
 		<servlet-name>Photo</servlet-name>
 		<servlet-class>controller.Photo</servlet-class>
 		<multipart-config>
-			<location>d:/png/</location>
+			<location>d:\</location>
 		</multipart-config>
 	</servlet>
 </web-app>

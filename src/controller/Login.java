@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("memberAccount");
 		String password = request.getParameter("memberPassword");
 		String operation = request.getParameter("operation");
-		String requestURI = (String) session.getAttribute("requestURI");
+//		String requestURI = (String) session.getAttribute("requestURI");
 		if (username == null || username.trim().length() == 0) {
 			errorMsgMap.put("AccountEmptyError", "帳號欄必須輸入");
 		}
@@ -56,7 +56,6 @@ public class Login extends HttpServlet {
 		Cookie cookieUser = null;
 		Cookie cookiePassword = null;
 		if (operation != null && operation.equals("登入") && bean != null){
-			
 			String ip = request.getRemoteAddr();
 			log.setIp(ip);
 			log.setMemberAccount(username);
@@ -65,7 +64,7 @@ public class Login extends HttpServlet {
 			cookieUser = new Cookie("user", username);
 			cookieUser.setMaxAge(30*60*60);
 			cookieUser.setPath(request.getContextPath());
-			String encodePassword = DatatypeConverter.printBase64Binary(password.getBytes());
+			String encodePassword = password.getBytes().toString();
 			cookiePassword = new Cookie("password", encodePassword);
 			cookiePassword.setMaxAge(30*60*60);
 			cookiePassword.setPath(request.getContextPath());
@@ -88,25 +87,31 @@ public class Login extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-		System.out.println(path);
-		if (errorMsgMap.isEmpty()) {
-			if (requestURI != null) {
-				requestURI = (requestURI.length() == 0 ? request
-						.getContextPath() : requestURI);
-//				requestURI = (requestURI.length() == 0 ? request
-//						.getContextPath() : path+"/HomePageVersion3.jsp");
-				response.sendRedirect(response.encodeRedirectURL(requestURI));
-				return;
-			} else {
-				response.sendRedirect(response.encodeRedirectURL(request
-						.getContextPath())+"/HomePageVersion3.jsp");
-				return;
-			}
-		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("Login2.jsp");
-			rd.forward(request, response);
+		else{
+			response.sendRedirect(response.encodeRedirectURL(request
+					.getContextPath())+"/HomePageVersion3.jsp");
 			return;
 		}
+		
+		
+//		if (errorMsgMap.isEmpty()) {
+//			if (requestURI != null) {
+//				requestURI = (requestURI.length() == 0 ? request
+//						.getContextPath() : requestURI);
+////				requestURI = (requestURI.length() == 0 ? request
+////						.getContextPath() : path+"/HomePageVersion3.jsp");
+//				response.sendRedirect(response.encodeRedirectURL(requestURI));
+//				return;
+//			} else {
+//				response.sendRedirect(response.encodeRedirectURL(request
+//						.getContextPath())+"/HomePageVersion3.jsp");
+//				return;
+//			}
+//		} else {
+//			RequestDispatcher rd = request.getRequestDispatcher("Login2.jsp");
+//			rd.forward(request, response);
+//			return;
+//		}
 
 	}
 
