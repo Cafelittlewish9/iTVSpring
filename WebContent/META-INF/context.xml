@@ -4,5 +4,4 @@
 		maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="iTVSoCool@xase7q8rgb"
 		password="iTVisgood911" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		url="jdbc:sqlserver://xase7q8rgb.database.windows.net:1433;database=iTV" />
-		
 </Context>

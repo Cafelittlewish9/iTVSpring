@@ -39,18 +39,18 @@
 				</c:if>
 				
 				<ul>
-					<a href="Videos.jsp"><span class="glyphicon glyphicon-hd-video" > <span style="font-family:Microsoft JhengHei;">熱門影片</span></span></a>
+					<a href="videos"><span class="glyphicon glyphicon-hd-video" > <span style="font-family:Microsoft JhengHei;">熱門影片</span></span></a>
 				</ul>	
 				
 				
 				<ul>
 					<a href="LiveStream.jsp"><span class="glyphicon glyphicon-facetime-video" > <span style="font-family:Microsoft JhengHei;">實況直播</span></span></a>
 				</ul>
-				<c:if test="${!empty user }">
+				
 				<ul>
 					<a href="Cloud.jsp"><span class="glyphicon glyphicon-cloud" > <span style="font-family:Microsoft JhengHei;">雲端硬碟</span></span></a>
 				</ul>	
-				</c:if>
+				
 				<ul>
 					<a href="#"><span class="glyphicon glyphicon-globe" > <span style="font-family:Microsoft JhengHei;">ITV論壇</span></span></a>
 				</ul>

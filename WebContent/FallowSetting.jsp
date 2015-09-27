@@ -16,7 +16,7 @@
 </center>
 
 <!-- Modal -->
-<div class="modal fade" id="#fallowModal" tabindex="-1" role="dialog" aria-labelledby="demoFallow" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" id="fallowModal" tabindex="-1" role="dialog" aria-labelledby="demoFallow" aria-hidden="true" data-backdrop="static">
 	<div class="modal-dialog">
 		<div class="modal-content">
 

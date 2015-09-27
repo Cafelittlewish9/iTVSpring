@@ -41,7 +41,7 @@ public class ShowServlet extends HttpServlet {
 			Map map =new HashMap();
 			map.put("memberId",row.getMemberId());
 			map.put("showTime",row.getShowTime()+"");
-//			map.put("website",row.getVideo().getVideoWebsite());
+			map.put("website",row.getVideo().getVideoWebsite());
 			map.put("videoTitle", row.getVideo().getVideoTitle());
 			list.add(map);
 		}
@@ -52,7 +52,7 @@ public class ShowServlet extends HttpServlet {
 		//接收資料
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		String Website = "http://itvvm.cloudapp.net/ITV/PlayVideo.jsp?filename=";
+		String Website = "http://itvvm.cloudapp.net/ITV/PlayVideo.jsp?filename=";
 		
 		String memberId = request.getParameter("memberId");
 		java.sql.Timestamp showTime = new java.sql.Timestamp(date.getTime());
@@ -69,7 +69,7 @@ public class ShowServlet extends HttpServlet {
 				if(prodaction!=null) {
 					if(prodaction.equals("Insert")) {
 						if(memberId==null || memberId.length()==0) {
-							errors.put("memberId", "請輸入您的帳號"+ prodaction );
+							errors.put("memberId", "Please ADD Your Id for"+ prodaction );
 						}
 					}else if (prodaction.equals("Update")||prodaction.equals("delete")){
 						//還沒寫完

@@ -9,6 +9,8 @@ import model.vo.MemberVO;
 import util.ConvertType;
 import util.ServicePasswordChange;
 
+//註冊後轉update頁面要由controller處理
+//查詢、修改個人資料、搜尋會員
 public class MemberService {
 	private MemberDAO dao;
 
@@ -116,16 +118,19 @@ public class MemberService {
 	}
 	// ↑↑↑↑↑↑↑雖然很討厭他，但我還是測完了，但請再幫我測一次感恩。
 
+	// 會員查詢個資
 	public MemberVO showMemberInfo(String username, String password) {
 		MemberVO mvo = this.login1(username, password);
 		return mvo;
 	}
 
+	// ↑是否是指連查詢個資都要輸入一次帳密？
 	public MemberVO searchByMemberAccount(String memberAccount) {
 		MemberVO bean = dao.findByMemberAccount(memberAccount);
 		return bean;
 	}
 
+	// 更改、測試完成
 	public boolean update(MemberVO bean) {
 		boolean result = false;
 		int temp = -1;

@@ -16,13 +16,15 @@ import model.service.LoginService;
 import model.service.MemberService;
 import model.vo.MemberVO;
 
-@WebServlet("/getPWd")
-public class GetPassword extends HttpServlet {
+@WebServlet("/loginAjaxs")
+public class LoginAjax extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberService memberService;
+	private LoginService loginService;
 
 	public void init() throws ServletException {
 		memberService = new MemberService();
+		loginService = new LoginService();
 	}
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +33,6 @@ public class GetPassword extends HttpServlet {
 
 		String username = request.getParameter("memberAccount");
 		String password = request.getParameter("memberPassword");
-		
 		String operation = request.getParameter("operation");
 
 		MemberVO bean = memberService.login1(username, password);
