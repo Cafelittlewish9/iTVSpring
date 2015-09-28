@@ -199,22 +199,22 @@ width: 450px; margin:0px auto;padding:5px
 
 <!-- 註冊成功Modal -->
 
-<div id="signupfinished" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
+<!-- <div id="signupfinished" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static"> -->
+<!--   <div class="modal-dialog modal-sm"> -->
+<!--     <div class="modal-content"> -->
     
 
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">註冊成功！</h4>
-      </div>
-    </div>
+<!--     <div class="modal-content"> -->
+<!--       <div class="modal-header"> -->
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+<!--         <h4 class="modal-title">註冊成功！</h4> -->
+<!--       </div> -->
+<!--     </div> -->
     
     
-    </div>
-  </div>
-</div>
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
 
 
 <!-- 提取密碼Modal -->
