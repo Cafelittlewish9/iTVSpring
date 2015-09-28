@@ -14,8 +14,6 @@
   
   
 <script>
-
-
 $(function(){
 	if('${user.memberAccount}'!=""){
 // 		判斷是否已建立實況
@@ -42,7 +40,6 @@ $(function(){
 		})
 	}
 })
-
 </script>
 
 <!-- </head> -->

@@ -46,51 +46,61 @@ width: 450px; margin:0px auto;padding:5px
 	<jsp:include page="/Bar.jsp" />
 
 <!-- Login Modal -->
-<section class="Loginmodal">
-<div class="modal-dialog" style="margin: 100px auto 80px auto;">
-    <div class="modal-content">
-    
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">會員登入</h4>
-      </div>
-      
-      <div class="modal-body">
+	<section class="Loginmodal">
+	<div class="modal-dialog" style="margin: 100px auto 80px auto;">
+		<div class="modal-content">
 
-			<form id="Login_form" method="post" action="<c:url value='/login'/>">
-				<fieldset style="text-align:center">
-				
-				<div id="l_input1-1"  class="input-group">
-					  <span  class="input-group-addon" id="basic-addon1">帳號</span>
-					  <input id="Login_memberAccount" type="text" name="memberId" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">會員登入</h4>
+			</div>
+
+			<div class="modal-body">
+
+				<form id="Login_form" method="post" action="<c:url value='/login'/>">
+					<fieldset style="text-align: center">
+
+						<div id="l_input1-1" class="input-group">
+							<span class="input-group-addon" id="basic-addon1">帳號</span> <input
+								id="Login_memberAccount" type="text" name="memberId"
+								class="form-control" placeholder="請輸入"
+								aria-describedby="basic-addon1">
+						</div>
+
+						<div id="l_input2-1" class="input-group">
+							<span class="input-group-addon" id="basic-addon1">密碼</span> <input
+								id="Login_memberPassword" type="text" name="memberPassword"
+								class="form-control" maxlength="20" placeholder="請輸入"
+								aria-describedby="basic-addon1">
+						</div>
+
+
+						<input value="Select" type="hidden" name="operation"
+							class="form-control" aria-describedby="basic-addon1">
+
+
+						<div style="width: 450px; margin: 0px auto; padding: 5px"
+							class="input-group2-1">
+							<input style="width: 440px" id="l_submit2-1" name="operation"
+								value="登入" class="btn btn-primary btn-small" type="submit">
+						</div>
+						<div style="width: 450px; margin: 0px auto; padding: 5px"
+							class="input-group2-2">
+							<a style="width: 440px" id="l_submit2-2"
+								class="btn btn-primary btn-small" role="button"
+								href="GetPassword.jsp">忘記密碼</a>
+						</div>
+					</fieldset>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
-				
-				<div id="l_input2-1"  class="input-group">
-					  <span  class="input-group-addon" id="basic-addon1">密碼</span>
-					  <input id="Login_memberPassword" type="text" name="memberPassword" class="form-control" maxlength="20" placeholder="請輸入" aria-describedby="basic-addon1">
-				</div>
-				
-				
-				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1">
-						
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+	</section>
+	<!-- End -->
 
-			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-1">
-				<input style="width: 440px" id="l_submit2-1" name="operation" value="登入" class="btn btn-primary btn-small" type="submit">
-			</div>
-			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-2">
-				<a style="width: 440px" id="l_submit2-2" class="btn btn-primary btn-small" role="button"  href="GetPassword.jsp">忘記密碼</a>
-			</div>
-			</fieldset>
-			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-      </div>
-      	  <div class="modal-footer">
-	      </div>
-    </div>
-</div>
-</section><!-- End -->  
-
-<jsp:include page="/Footer.jsp" />
+	<jsp:include page="/Footer.jsp" />
 </body>
 </html>

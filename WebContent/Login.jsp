@@ -71,21 +71,21 @@ width: 450px; margin:0px auto;padding:5px
 <%-- </center> --%>
 
 <!-- SignUp Modal -->
-<div class="modal fade" id="SignUp" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true"
-	data-backdrop="static">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				</button>
-				<h4 style="text-align: center" class="modal-title" id="myModalLabel">註冊</h4>
-			</div>
-			<div class="modal-body">
-						<div class="upload-form">
-				<form id="SignUp_form">
-					<fieldset style="text-align: center">
+<!-- <div class="modal fade" id="SignUp" tabindex="-1" role="dialog" -->
+<!-- 	aria-labelledby="myModalLabel" aria-hidden="true" -->
+<!-- 	data-backdrop="static"> -->
+<!-- 	<div class="modal-dialog"> -->
+<!-- 		<div class="modal-content"> -->
+<!-- 			<div class="modal-header"> -->
+<!-- 				<button type="button" class="close" data-dismiss="modal"> -->
+<!-- 					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span> -->
+<!-- 				</button> -->
+<!-- 				<h4 style="text-align: center" class="modal-title" id="myModalLabel">註冊</h4> -->
+<!-- 			</div> -->
+<!-- 			<div class="modal-body"> -->
+<!-- 						<div class="upload-form"> -->
+<!-- 				<form id="SignUp_form"> -->
+<!-- 					<fieldset style="text-align: center"> -->
 
 <!-- 						<div id="l_input1" class="input-group"> -->
 <!-- 							<span class="input-group-addon" id="basic-addon1">帳號</span>  -->
@@ -138,66 +138,72 @@ width: 450px; margin:0px auto;padding:5px
 <!-- 						<input style="width: 440px" id="l_submit1" name="operation" -->
 <!-- 							value="註冊  " class="btn btn-primary btn-small" type="submit"> -->
 <!-- 					</div> -->
-					</fieldset>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<!-- 					</fieldset> -->
+<!-- 				</form> -->
+<!-- 			</div> -->
+<!-- 			<div class="modal-footer"> -->
+<!-- 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- Login Modal -->
+	<div class="modal fade" id="Login" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 style="text-align: center" class="modal-title"
+						id="myModalLabel">會員登入</h4>
+				</div>
+
+				<div class="modal-body">
+					<form id="Login_form" method="post"
+						action="<c:url value='/login' />">
+						<fieldset style="text-align: center">
+
+							<div id="l_input1-1" class="input-group">
+								<span class="input-group-addon" id="basic-addon1">帳號</span> <input
+									id="Login_memberAccount" type="text" name="memberAccount"
+									class="form-control" placeholder="請輸入"
+									aria-describedby="basic-addon1">
+							</div>
+
+							<div id="l_input2-1" class="input-group">
+								<span class="input-group-addon" id="basic-addon1">密碼</span> <input
+									id="Login_memberPassword" type="text" name="memberPassword"
+									class="form-control" maxlength="20" placeholder="請輸入"
+									aria-describedby="basic-addon1">
+							</div>
+							<!-- 				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1"> -->
+						</fieldset>
+						<div style="width: 450px; margin: 0px auto; padding: 5px"
+							class="input-group2-1">
+							<input style="width: 440px" id="l_submit2-1" name="operation"
+								value="登入" class="btn btn-primary btn-small" type="submit">
+						</div>
+						<div style="width: 450px; margin: 0px auto; padding: 5px"
+							class="input-group2-2">
+							<button style="width: 440px" id="l_submit2-2" name="operation"
+								class="btn btn-primary btn-small" data-dismiss="modal"
+								data-toggle="modal" type="button" data-target="#mypassword">忘記密碼</button>
+						</div>
+						</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 
-<!-- Login Modal -->
-<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 style="text-align:center" class="modal-title" id="myModalLabel">會員登入</h4>
-      </div>
-      
-      <div class="modal-body">
-<!-- 		<div class="upload-form"> -->
-			<form id="Login_form" method="post" action="<c:url value='/login' />">
-				<fieldset style="text-align:center">
-				
-				<div id="l_input1-1"  class="input-group">
-					  <span  class="input-group-addon" id="basic-addon1">帳號</span>
-					  <input id="Login_memberAccount" type="text" name="memberAccount" class="form-control" placeholder="請輸入" aria-describedby="basic-addon1">
-				</div>
-				
-				<div id="l_input2-1"  class="input-group">
-					  <span  class="input-group-addon" id="basic-addon1">密碼</span>
-					  <input id="Login_memberPassword" type="text" name="memberPassword" class="form-control" maxlength="20" placeholder="請輸入" aria-describedby="basic-addon1">
-				</div>
-				
-				
-<!-- 				<input value="Select" type="hidden" name="operation" class="form-control" aria-describedby="basic-addon1"> -->
-						
-				</fieldset>
-<!-- 			</form> -->
-<!-- 			<form > -->
-			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-1">
-				<input style="width: 440px" id="l_submit2-1" name="operation" value="登入" class="btn btn-primary btn-small" type="submit">
-			</div>
-<!-- 			</form> -->
-			<div style="width: 450px; margin:0px auto;padding:5px" class="input-group2-2">
-				<button style="width: 440px" id="l_submit2-2" name="operation" class="btn btn-primary btn-small" data-dismiss="modal" data-toggle="modal" type="button" data-target="#mypassword">忘記密碼</button>
-			</div>
-			</form>
-<!-- 		</div> -->
-      </div>
-      	  <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 註冊成功Modal -->
+	<!-- 註冊成功Modal -->
 
 <!-- <div id="signupfinished" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" data-backdrop="static"> -->
 <!--   <div class="modal-dialog modal-sm"> -->

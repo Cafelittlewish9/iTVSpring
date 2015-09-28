@@ -36,7 +36,6 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String path = request.getRequestURI();
 		HttpSession session = request.getSession();
 		Map<String, String> errorMsgMap = new HashMap<String, String>();
 		request.setAttribute("ErrorMsgKey", errorMsgMap);
@@ -82,13 +81,12 @@ public class Login extends HttpServlet {
 		}
 		response.addCookie(cookieUser);
 		response.addCookie(cookiePassword);
-		
+		System.out.println(errorMsgMap);
 		if (!errorMsgMap.isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("Login2.jsp");
 			rd.forward(request, response);
 			return;
 		}
-		System.out.println(path);
 		if (errorMsgMap.isEmpty()) {
 			if (requestURI != null) {
 				requestURI = (requestURI.length() == 0 ? request

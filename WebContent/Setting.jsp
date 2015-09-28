@@ -40,8 +40,8 @@
 							<div class="form-group">
 								<label for="account" class="col-sm-3 control-label">直播server</label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control" id="broadcastWebsite"
-										name="broadcastWebsite" value="${user.broadcastWebsite}"
+									<input type="text" class="form-control" id="broadcastWebsite1"
+										name="broadcastWebsite1" value="${user.broadcastWebsite}"
 										placeholder="" readonly />
 								</div>
 							</div>
